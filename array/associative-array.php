@@ -1,10 +1,7 @@
 <?php
-  $names = [];
+$names = [];
 
-  $names['first name']= "ashik";
-   $names['last name'] = "mia";
+$names['first name'] = "ashik";
+$names['last name'] = "mia";
 
-   echo names['first name'];
-
-
-?>
+echo $names['first name'];
