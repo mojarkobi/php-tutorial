@@ -1,0 +1,3422 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://www.tutorialrepublic.com/php-tutorial/php-regular-expressions.php
+Subject: Regular Expressions in PHP - Tutorial Republic
+Date: Wed, 10 Jan 2024 21:11:03 +0600
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----"
+
+
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-EC557069F04599422F88F2C58BF8772C@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.tutorialrepublic.com/php-tutorial/php-regular-expressions.php
+
+<!DOCTYPE html><html lang=3D"en" webcrx=3D""><!-- InstanceBegin template=3D=
+"/Templates/php.dwt.php" codeOutsideHTMLIsLocked=3D"false" --><head><meta h=
+ttp-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><link rel=
+=3D"stylesheet" type=3D"text/css" href=3D"cid:css-b16875fe-0bd4-4e82-9f55-9=
+0488a5257ac@mhtml.blink" />
+	<!-- InstanceBeginEditable name=3D"doctitle" -->
+    <title>Regular Expressions in PHP - Tutorial Republic</title>
+    <!-- InstanceEndEditable -->
+    =09
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<meta property=3D"fb:admins" content=3D"100001054961582">
+<meta property=3D"fb:app_id" content=3D"1404574483159557">
+<meta property=3D"og:image" content=3D"/lib/images/signature.png">
+<link rel=3D"shortcut icon" type=3D"image/x-icon" href=3D"https://www.tutor=
+ialrepublic.com/favicon.png">
+
+
+   =20
+    <!-- InstanceBeginEditable name=3D"head" -->
+    <!-- InstanceEndEditable -->
+   =20
+=09
+<link rel=3D"stylesheet" href=3D"https://www.tutorialrepublic.com/lib/style=
+s/extended-3.2.css"><link rel=3D"stylesheet" href=3D"https://www.tutorialre=
+public.com/lib/icomoon/style.css"><meta http-equiv=3D"origin-trial" content=
+=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaia=
+YifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLC=
+JmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3M=
+Tk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-tri=
+al" content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB=
+5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F=
+0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb2=
+4iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-=
+equiv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6x=
+aLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczov=
+L2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25=
+TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUG=
+FydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKR=
+DbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAA=
+ACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJl=
+IjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksIml=
+zU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"orig=
+in-trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTC=
+pqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsa=
+WNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24i=
+LCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-eq=
+uiv=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5o=
+JNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2=
+dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXa=
+XRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=
+=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1=
++ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvc=
+mlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlk=
+ZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp=
+0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" conten=
+t=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD=
+0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvb=
+To0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnki=
+OjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta=
+ http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddBy=
+iVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodH=
+RwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXa=
+XRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=
+=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJanC+J=
+gEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvc=
+mlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2Vi=
+Vmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3V=
+iZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"A/E=
+RL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7=
+rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0d=
+XJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTks=
+ImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"o=
+rigin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0=
+T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZX=
+N5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZ=
+XJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFy=
+dHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"As0hBNJ8h++fNYlk=
+q8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB=
+8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVm=
+lld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZ=
+G9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial" content=3D"AgRYs=
+Xo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO=
+64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJ=
+mZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MT=
+k1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-tria=
+l" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNa=
+UKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5l=
+dDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnk=
+iOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><met=
+a http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ=
+8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJod=
+HRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGlu=
+Z0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnV=
+lLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D=
+"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYif=
+wEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZ=
+WF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1=
+MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=3D"origin-trial"=
+ content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ub=
+hpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW=
+9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iL=
+CJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equ=
+iv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLn=
+D2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2R=
+vdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZX=
+J2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFyd=
+HkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=3D"A6OdGH3fVf4eKRDbX=
+b4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACT=
+eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjo=
+iRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3=
+ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-=
+trial" content=3D"As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqX=
+MDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNr=
+Lm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJ=
+leHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=3D"><meta http-equiv=
+=3D"origin-trial" content=3D"AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx=
+0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb=
+2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRo=
+RGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=3D=
+=3D"><meta http-equiv=3D"origin-trial" content=3D"A/ERL66fN363FkXxgDc6F1+uc=
+RUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmln=
+aW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGl=
+uZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cn=
+VlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv=3D"origin-trial" content=
+=3D"A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0=
+E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbT=
+o0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiO=
+jE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head=
+>
+<body>
+    <iframe name=3D"googlefcPresent" style=3D"width: 0px; height: 0px; bord=
+er: none; z-index: -1000; left: -1000px; top: -1000px; display: none;"></if=
+rame><!--Header-->
+   =20
+<div class=3D"header">
+    <div class=3D"wrapper clearfix">
+        <button type=3D"button" class=3D"open-menu mobile-only"><i class=3D=
+"icon-menu"></i></button>
+        <div class=3D"logo">
+            <a href=3D"https://www.tutorialrepublic.com/"><img src=3D"https=
+://www.tutorialrepublic.com/lib/images/logo.svg" alt=3D"TutorialRepublic"><=
+/a>
+        </div>
+        <div class=3D"site-search">
+            <form action=3D"https://www.google.com/search" method=3D"get" t=
+arget=3D"_blank" class=3D"clearfix">
+               =20
+                <input type=3D"text" name=3D"q" placeholder=3D"Search topic=
+s, tutorials, questions and answers..." id=3D"searchInput" class=3D"search"=
+>
+                <button type=3D"submit" class=3D"search-btn"><span class=3D=
+"icon-search"></span></button>
+            </form>
+        </div>
+        <div class=3D"social">               =20
+            <a href=3D"https://www.facebook.com/tutorialrepublic" target=3D=
+"_blank" title=3D"Join us on Facebook"><i class=3D"icon-facebook"></i></a>
+            <a href=3D"https://twitter.com/tutrepublic" target=3D"_blank" t=
+itle=3D"Follow us on Twitter"><i class=3D"icon-twitter"></i></a>
+            <a href=3D"https://www.tutorialrepublic.com/contact-us.php" tar=
+get=3D"_blank" title=3D"Send us an Email"><i class=3D"icon-mail"></i></a>
+        </div>
+        <button type=3D"button" class=3D"open-search mobile-only">
+            <i class=3D"icon-search"></i>
+        </button>
+    </div>   =20
+</div>
+<div class=3D"menu">
+    <div class=3D"wrapper">
+        <a href=3D"https://www.tutorialrepublic.com/" title=3D"Home Page">H=
+OME</a>
+        <a href=3D"https://www.tutorialrepublic.com/html-tutorial/" title=
+=3D"HTML Tutorial">HTML5</a>           =20
+        <a href=3D"https://www.tutorialrepublic.com/css-tutorial/" title=3D=
+"CSS Tutorial">CSS3</a>
+        <a href=3D"https://www.tutorialrepublic.com/javascript-tutorial/" t=
+itle=3D"JavaScript Tutorial">JAVASCRIPT</a>
+        <a href=3D"https://www.tutorialrepublic.com/jquery-tutorial/" title=
+=3D"jQuery Tutorial">JQUERY</a>
+        <a href=3D"https://www.tutorialrepublic.com/twitter-bootstrap-tutor=
+ial/" title=3D"Bootstrap 5 Tutorial">BOOTSTRAP5</a>
+		<a href=3D"https://www.tutorialrepublic.com/twitter-bootstrap-4-tutorial/=
+" class=3D"old-version" title=3D"Bootstrap 4.6 Tutorial">v4.6</a>
+        <a href=3D"https://www.tutorialrepublic.com/php-tutorial/" title=3D=
+"PHP Tutorial">PHP7</a>=20
+        <a href=3D"https://www.tutorialrepublic.com/sql-tutorial/" title=3D=
+"SQL Tutorial">SQL</a>
+        <a href=3D"https://www.tutorialrepublic.com/references.php" title=
+=3D"Web References">REFERENCES</a>
+        <a href=3D"https://www.tutorialrepublic.com/practice-examples.php" =
+title=3D"Practice Examples and Demos">EXAMPLES</a>
+        <a href=3D"https://www.tutorialrepublic.com/faq.php" title=3D"Frequ=
+ently Asked Questions and Answers">FAQ</a>
+        <a href=3D"https://www.tutorialrepublic.com/snippets/gallery.php" t=
+itle=3D"Bootstrap Code Snippets" target=3D"_blank">SNIPPETS</a>
+        <a href=3D"https://www.tutorialrepublic.com/codelab.php" class=3D"t=
+ool-link" target=3D"_blank">Online HTML Editor</a>
+    </div>       =20
+</div>    <!--End:Header-->
+    <div class=3D"wrapper clearfix">
+        <div class=3D"leftcolumn" id=3D"myNav">
+	=09
+        <div class=3D"segment"><span>PHP</span> BASIC</div>
+<div class=3D"chapters">
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/">PHP Introduc=
+tion</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-get-starte=
+d.php">PHP Getting Started</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-syntax.php=
+">PHP Syntax</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-variables.=
+php">PHP Variables</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-constants.php=
+">PHP Constants</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-echo-and-p=
+rint-statements.php">PHP Echo and Print</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-data-types.ph=
+p">PHP Data Types</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-strings.ph=
+p">PHP Strings</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-operators.=
+php">PHP Operators</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-if-else-st=
+atements.php">PHP If=E2=80=A6Else</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-switch-cas=
+e-statements.php">PHP Switch=E2=80=A6Case</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-arrays.php=
+">PHP Arrays</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-sorting-ar=
+rays.php">PHP Sorting Arrays</a>   =20
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-loops.php"=
+>PHP Loops</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-functions.=
+php">PHP Functions</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-math-operatio=
+ns.php">PHP Math Operations</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-get-and-po=
+st.php">PHP GET and POST</a>
+</div>
+<div class=3D"segment"><span>PHP</span> ADVANCED</div>
+<div class=3D"chapters">
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-date-and-t=
+ime.php">PHP Date and Time</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-include-fi=
+les.php">PHP Include Files</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-file-syste=
+m.php">PHP File system</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-parsing-direc=
+tories.php">PHP Parsing Directories</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-file-uploa=
+d.php">PHP File Upload</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-file-download=
+.php">PHP File Download</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-cookies.ph=
+p">PHP Cookies</a>=20
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-sessions.p=
+hp">PHP Sessions</a>      =20
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-send-email=
+.php">PHP Send Email</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-form-handl=
+ing.php">PHP Form Handling</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-form-valid=
+ation.php">PHP Form Validation</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-filters.php">=
+PHP Filters</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-error-hand=
+ling.php">PHP Error Handling</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-classes-and-o=
+bjects.php">PHP Classes and Objects</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-magic-constan=
+ts.php">PHP Magic Constants</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-json-parsing.=
+php">PHP JSON Parsing</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-regular-expre=
+ssions.php">PHP Regular Expressions</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-exception-han=
+dling.php">PHP Exception Handling</a>
+</div>
+<div class=3D"segment"><span>PHP</span> &amp; MySQL DATABASE</div>
+<div class=3D"chapters">
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-intr=
+oduction.php">PHP MySQL Introduction</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-conn=
+ect.php">PHP MySQL Connect</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-crea=
+te-database.php">PHP MySQL Create Database</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-create-=
+table.php">PHP MySQL Create Table</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-inse=
+rt-query.php">PHP MySQL Insert</a>=09
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-prepare=
+d-statements.php">PHP MySQL Prepared</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-last-in=
+serted-id.php">PHP MySQL Last Inserted ID</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-sele=
+ct-query.php">PHP MySQL Select</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-wher=
+e-clause.php">PHP MySQL Where</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-limit-c=
+lause.php">PHP MySQL Limit</a>       =20
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-orde=
+r-by-clause.php">PHP MySQL Order By</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-upda=
+te-query.php">PHP MySQL Update</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-dele=
+te-query.php">PHP MySQL Delete</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-crud-ap=
+plication.php">PHP=E2=80=89MySQL=E2=80=89CRUD Application</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-ajax-li=
+ve-search.php">PHP MySQL Ajax Search</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-s=
+ystem.php">PHP MySQL Login System</a>
+</div>
+<div class=3D"segment"><span>PHP</span> EXAMPLES</div>
+<div class=3D"chapters">
+    <a href=3D"https://www.tutorialrepublic.com/php-examples.php">PHP Pract=
+ice Examples</a>
+	<a href=3D"https://www.tutorialrepublic.com/faq.php#php-mysql">PHP FAQ's A=
+nswers</a>
+</div>
+<div class=3D"segment"><span>PHP</span> REFERENCE</div>
+<div class=3D"chapters">
+	<a href=3D"https://www.tutorialrepublic.com/php-reference/php-string-funct=
+ions.php">PHP String Functions</a>
+	<a href=3D"https://www.tutorialrepublic.com/php-reference/php-array-functi=
+ons.php">PHP Array Functions</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-file-syst=
+em-functions.php">PHP File System Functions</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-date-and-=
+time-functions.php">PHP Date/Time Functions</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-calendar-=
+functions.php">PHP Calendar Functions</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-mysqli-fu=
+nctions.php">PHP MySQLi Functions</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-filters.p=
+hp">PHP Filters</a>
+    <a href=3D"https://www.tutorialrepublic.com/php-reference/php-error-lev=
+els.php">PHP Error Levels</a>
+	<a href=3D"https://www.tutorialrepublic.com/references.php" class=3D"more"=
+>More references</a>
+</div>       =20
+                </div>
+        <div class=3D"centercolumn">
+            <!--Text Content-->
+            <div class=3D"content">
+                <div class=3D"leaderboard">
+
+    <div class=3D"ad-label">Advertisements</div>
+
+    <div class=3D"ad-container">
+       =20
+<!-- Responsive Leaderboard -->
+<ins class=3D"adsbygoogle" style=3D"display: block; width: 728px; max-width=
+: 728px; height: 90px;" data-ad-client=3D"ca-pub-9107540490929984" data-ad-=
+slot=3D"4302666817" data-adsbygoogle-status=3D"done" data-ad-status=3D"unfi=
+lled"><div id=3D"aswift_1_host" tabindex=3D"0" title=3D"Advertisement" aria=
+-label=3D"Advertisement" style=3D"border: none; height: 90px; width: 728px;=
+ margin: 0px; padding: 0px; position: relative; visibility: visible; backgr=
+ound-color: transparent; display: inline-block;"><iframe id=3D"aswift_1" na=
+me=3D"aswift_1" browsingtopics=3D"true" style=3D"left:0;position:absolute;t=
+op:0;border:0;width:728px;height:90px;" sandbox=3D"allow-forms allow-popups=
+ allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-n=
+avigation-by-user-activation" width=3D"728" height=3D"90" frameborder=3D"0"=
+ marginwidth=3D"0" marginheight=3D"0" vspace=3D"0" hspace=3D"0" allowtransp=
+arency=3D"true" scrolling=3D"no" allow=3D"attribution-reporting" src=3D"cid=
+:frame-6AE0ACFF73E425740B9D61D65521FAA1@mhtml.blink" data-google-container-=
+id=3D"a!2" data-google-query-id=3D"CK-KwZaC04MDFaqVSwUdrToJ6A" data-load-co=
+mplete=3D"true"></iframe></div></ins>
+    </div>
+
+   =20
+</div>                <!-- InstanceBeginEditable name=3D"main_content" -->
+                <a href=3D"https://www.tutorialrepublic.com/php-tutorial/ph=
+p-json-parsing.php" class=3D"previous-page" title=3D"Go to Previous Page"><=
+/a>
+                <a href=3D"https://www.tutorialrepublic.com/php-tutorial/ph=
+p-exception-handling.php" class=3D"next-page" title=3D"Go to Next Page"></a=
+>
+                <h1>PHP <span>Regular Expressions</span></h1>
+                <p class=3D"summary">In this tutorial you will learn how re=
+gular expressions work, as well as how to use them to perform pattern match=
+ing in an efficient way in PHP.</p>
+                <h2>What is Regular Expression</h2>
+				<p>Regular Expressions, commonly known as "<strong>regex</strong>" or "=
+<strong>RegExp</strong>", are a specially formatted text strings used to fi=
+nd patterns in text. Regular expressions are one of the most powerful tools=
+ available today for effective and efficient text processing and manipulati=
+ons. For example, it can be used to verify whether the format of data i.e. =
+name, email, phone number, etc. entered by the user was correct or not, fin=
+d or replace matching string within text content, and so on.</p>
+				<p>PHP (version 5.3 and above) supports Perl style regular expressions =
+via its <code>preg_</code> family of functions. Why Perl style regular expr=
+essions? Because Perl (<em>Practical Extraction and Report Language</em>) w=
+as the first mainstream programming language that provided integrated suppo=
+rt for regular expressions and it is well known for its strong support of r=
+egular expressions and its extraordinary text processing and manipulation c=
+apabilities.</p>
+				<p>Let's begin with a brief overview of the commonly used PHP's built-i=
+n pattern-matching functions before delving deep into the world of regular =
+expressions.</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th>Function</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>preg_match()</code></td>
+								<td>Perform a regular expression match.</td>
+							</tr>
+							<tr>
+								<td><code>preg_match_all()</code></td>
+								<td>Perform a global regular expression match.</td>
+							</tr>						=09
+							<tr>
+								<td><code>preg_replace()</code></td>
+								<td>Perform a regular expression search and replace.</td>
+							</tr>
+							<tr>
+								<td><code>preg_grep()</code></td>
+								<td>Returns the elements of the input array that matched the patter=
+n.</td>
+							</tr>
+							<tr>
+								<td><code>preg_split()</code></td>
+								<td>Splits up a string into substrings using a regular expression.<=
+/td>
+							</tr>
+							<tr>
+								<td><code>preg_quote()</code></td>
+								<td>Quote regular expression characters found within a string.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--Note box-->
+                <div class=3D"color-box">
+                    <div class=3D"shadow">
+                        <div class=3D"info-tab note-icon" title=3D"Importan=
+t Notes"><i></i></div>
+                        <div class=3D"note-box">
+                            <p><strong>Note:</strong> The PHP <code>preg_ma=
+tch()</code> function stops searching after it finds the first match, where=
+as the <code>preg_match_all()</code> function continues searching until the=
+ end of the string and find all possible matches instead of stopping at the=
+ first match.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End:Note box-->
+				<hr>
+				<h2>Regular Expression Syntax</h2>
+				<p>Regular expression syntax includes the use of special characters (do=
+ not confuse with the <a href=3D"https://www.tutorialrepublic.com/html-tuto=
+rial/html-entities.php">HTML special characters</a>). The characters that a=
+re given special meaning within a regular expression, are: <code>.</code> <=
+code>*</code> <code>?</code> <code>+</code> <code>[</code> <code>]</code> <=
+code>(</code> <code>)</code> <code>{</code> <code>}</code> <code>^</code> <=
+code>$</code> <code>|</code> <code>\</code>. You will need to backslash the=
+se characters whenever you want to use them literally. For example, if you =
+want to match ".", you'd have to write <code>\.</code>. All other character=
+s automatically assume their literal meanings.</p>
+				<p class=3D"space">The following sections describe the various options =
+available for formulating patterns:</p>
+				<h2>Character Classes</h2>
+				<p>Square brackets surrounding a pattern of characters are called a cha=
+racter class e.g. <code>[abc]</code>. A character class always matches a si=
+ngle character out of a list of specified characters that means the express=
+ion <code>[abc]</code> matches only a, b or c character.</p>
+				<p>Negated character classes can also be defined that match any charact=
+er except those contained within the brackets. A negated character class is=
+ defined by placing a caret (<code>^</code>) symbol immediately after the o=
+pening bracket, like this <code>[^abc]</code>.</p>
+				<p>You can also define a range of characters by using the hyphen (<code=
+>-</code>) character inside a character class, like <code>[0-9]</code>. Let=
+'s look at some examples of character classes:</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th>RegExp</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>[abc]</code></td>
+								<td>Matches any one of the characters a, b, or c.</td>
+							</tr>
+							<tr>
+								<td><code>[^abc]</code></td>
+								<td>Matches any one character other than a, b, or c.</td>
+							</tr>
+							<tr>
+								<td><code>[a-z]</code></td>
+								<td>Matches any one character from lowercase a to lowercase z.</td>
+							</tr>
+							<tr>
+								<td><code>[A-Z]</code></td>
+								<td>Matches any one character from uppercase a to uppercase z.</td>
+							</tr>
+							<tr>
+								<td><code>[a-Z]</code></td>
+								<td>Matches any one character from lowercase a to uppercase Z.</td>
+							</tr>
+							<tr>
+								<td><code>[0-9]</code></td>
+								<td>Matches a single digit between 0 and 9.</td>
+							</tr>
+							<tr>
+								<td><code>[a-z0-9]</code></td>
+								<td>Matches a single character between a and z or between 0 and 9.<=
+/td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>The following example will show you how to find whether a pattern ex=
+ists in a string or not using the regular expression and PHP <code>preg_mat=
+ch()</code> function:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dma=
+tch-a-pattern-against-a-string-using-regular-expression" target=3D"_blank" =
+class=3D"try-btn" title=3D"Run this code to view the output">Run this code =
+<span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/ca[kf]e/"=
+</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"He was eating=
+ cake in the cafe."</span><span class=3D"token punctuation">;</span>
+<span class=3D"token keyword">if</span><span class=3D"token punctuation">(<=
+/span><span class=3D"token function">preg_match</span><span class=3D"token =
+punctuation">(</span><span class=3D"token variable">$pattern</span><span cl=
+ass=3D"token punctuation">,</span> <span class=3D"token variable">$text</sp=
+an><span class=3D"token punctuation">)</span><span class=3D"token punctuati=
+on">)</span><span class=3D"token punctuation">{</span>
+    <span class=3D"token keyword">echo</span> <span class=3D"token double-q=
+uoted-string string">"Match found!"</span><span class=3D"token punctuation"=
+>;</span>
+<span class=3D"token punctuation">}</span> <span class=3D"token keyword">el=
+se</span><span class=3D"token punctuation">{</span>
+    <span class=3D"token keyword">echo</span> <span class=3D"token double-q=
+uoted-string string">"Match not found."</span><span class=3D"token punctuat=
+ion">;</span>
+<span class=3D"token punctuation">}</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span>=
+<span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span><=
+/span><span class=3D"line-numbers-sizer" style=3D"display: none;"></span></=
+code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>Similarly, you can use the <code>preg_match_all()</code> function to=
+ find all matches within a string:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dfi=
+nd-all-occurrences-of-a-pattern-in-a-string-using-regular-expression" targe=
+t=3D"_blank" class=3D"try-btn" title=3D"Run this code to view the output">R=
+un this code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/ca[kf]e/"=
+</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"He was eating=
+ cake in the cafe."</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$matches</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token function">preg_match_all</span><span cla=
+ss=3D"token punctuation">(</span><span class=3D"token variable">$pattern</s=
+pan><span class=3D"token punctuation">,</span> <span class=3D"token variabl=
+e">$text</span><span class=3D"token punctuation">,</span> <span class=3D"to=
+ken variable">$array</span><span class=3D"token punctuation">)</span><span =
+class=3D"token punctuation">;</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token variable">$m=
+atches</span> <span class=3D"token punctuation">.</span> <span class=3D"tok=
+en double-quoted-string string">" matches were found."</span><span class=3D=
+"token punctuation">;</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-si=
+zer" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<!--Tip Box-->
+				<div class=3D"color-box">
+					<div class=3D"shadow">
+						<div class=3D"info-tab tip-icon" title=3D"Useful Tips"><i></i></div>
+						<div class=3D"tip-box">
+							<p><strong>Tip:</strong> Regular expressions aren't exclusive to PHP=
+. Languages such as Java, Perl, Python, etc. use the same notation for find=
+ing patterns in text.</p>
+						</div>
+					</div>
+				</div>
+				<!--End:Tip Box-->
+				<hr>
+				<h2>Predefined Character Classes</h2>
+				<p>Some character classes such as digits, letters, and whitespaces are =
+used so frequently that there are shortcut names for them. The following ta=
+ble lists those predefined character classes:</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th style=3D"width: 60px;">Shortcut</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>.</code></td>
+								<td>Matches any single character except newline <code>\n</code>.</t=
+d>
+							</tr>
+							<tr>
+								<td><code>\d</code></td>
+								<td>matches any digit character. Same as <code>[0-9]</code></td>
+							</tr>
+							<tr>
+								<td><code>\D</code></td>
+								<td>Matches any non-digit character. Same as <code>[^0-9]</code></t=
+d>
+							</tr>
+							<tr>
+								<td><code>\s</code></td>
+								<td>Matches any whitespace character (space, tab, newline or carria=
+ge return character). Same as <code>[ \t\n\r]</code></td>
+							</tr>
+							<tr>
+								<td><code>\S</code></td>
+								<td>Matches any non-whitespace character. Same as <code>[^ \t\n\r]<=
+/code></td>
+							</tr>
+							<tr>
+								<td><code>\w</code></td>
+								<td>Matches any word character (definned as a to z, A to Z,0 to 9, =
+and the underscore). Same as <code>[a-zA-Z_0-9]</code></td>
+							</tr>
+							<tr>
+								<td><code>\W</code></td>
+								<td>Matches any non-word character. Same as <code>[^a-zA-Z_0-9]</co=
+de></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>The following example will show you how to find and replace space wi=
+th a hyphen character in a string using regular expression and PHP <code>pr=
+eg_replace()</code> function:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dfi=
+nd-and-replace-characters-in-a-string-using-regular-expression" target=3D"_=
+blank" class=3D"try-btn" title=3D"Run this code to view the output">Run thi=
+s code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/\s/"</spa=
+n><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$replacement</span> <span class=3D"token ope=
+rator">=3D</span> <span class=3D"token double-quoted-string string">"-"</sp=
+an><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"Earth revolve=
+s around\nthe\tSun"</span><span class=3D"token punctuation">;</span>
+<span class=3D"token comment">// Replace spaces, newlines and tabs</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token function">pr=
+eg_replace</span><span class=3D"token punctuation">(</span><span class=3D"t=
+oken variable">$pattern</span><span class=3D"token punctuation">,</span> <s=
+pan class=3D"token variable">$replacement</span><span class=3D"token punctu=
+ation">,</span> <span class=3D"token variable">$text</span><span class=3D"t=
+oken punctuation">)</span><span class=3D"token punctuation">;</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token double-quote=
+d-string string">"&lt;br&gt;"</span><span class=3D"token punctuation">;</sp=
+an>
+<span class=3D"token comment">// Replace only spaces</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token function">st=
+r_replace</span><span class=3D"token punctuation">(</span><span class=3D"to=
+ken double-quoted-string string">" "</span><span class=3D"token punctuation=
+">,</span> <span class=3D"token double-quoted-string string">"-"</span><spa=
+n class=3D"token punctuation">,</span> <span class=3D"token variable">$text=
+</span><span class=3D"token punctuation">)</span><span class=3D"token punct=
+uation">;</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span>=
+<span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span><=
+span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-size=
+r" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<hr>			=09
+				<h2>Repetition Quantifiers</h2>
+				<p>In the previous section we've learnt how to match a single character=
+ in a variety of fashions. But what if you want to match on more than one c=
+haracter? For example, let's say you want to find out words containing one =
+or more instances of the letter p, or words containing at least two p's, an=
+d so on. This is where quantifiers come into play. With quantifiers you can=
+ specify how many times a character in a regular expression should match.</=
+p>
+				<p>The following table lists the various ways to quantify a particular =
+pattern:</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th style=3D"width: 80px;">RegExp</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>p+</code></td>
+								<td>Matches one or more occurrences of the letter p.</td>
+							</tr>
+							<tr>
+								<td><code>p*</code></td>
+								<td>Matches zero or more occurrences of the letter p.</td>
+							</tr>
+							<tr>
+								<td><code>p?</code></td>
+								<td>Matches zero or one occurrences of the letter p.</td>
+							</tr>
+							<tr>
+								<td><code>p{2}</code></td>
+								<td>Matches exactly two occurrences of the letter p.</td>
+							</tr>
+							<tr>
+								<td><code>p{2,3}</code></td>
+								<td>Matches at least two occurrences of the letter p, but not more =
+than three occurrences of the letter p.</td></tr>
+							<tr>
+								<td><code>p{2,}</code></td>
+								<td>Matches two or more occurrences of the letter p.</td>
+							</tr>
+							<tr>
+								<td><code>p{,3}</code></td>
+								<td>Matches at most three occurrences of the letter p</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>The regular expression in the following example will splits the stri=
+ng at comma, sequence of commas, whitespace, or combination thereof using t=
+he PHP <code>preg_split()</code> function:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dsp=
+lit-a-string-using-regular-expression" target=3D"_blank" class=3D"try-btn" =
+title=3D"Run this code to view the output">Run this code <span>=C2=BB</span=
+></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/[\s,]+/"<=
+/span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"My favourite =
+colors are red, green and blue"</span><span class=3D"token punctuation">;</=
+span>
+<span class=3D"token variable">$parts</span> <span class=3D"token operator"=
+>=3D</span> <span class=3D"token function">preg_split</span><span class=3D"=
+token punctuation">(</span><span class=3D"token variable">$pattern</span><s=
+pan class=3D"token punctuation">,</span> <span class=3D"token variable">$te=
+xt</span><span class=3D"token punctuation">)</span><span class=3D"token pun=
+ctuation">;</span>
+=20
+<span class=3D"token comment">// Loop through parts array and display subst=
+rings</span>
+<span class=3D"token keyword">foreach</span><span class=3D"token punctuatio=
+n">(</span><span class=3D"token variable">$parts</span> <span class=3D"toke=
+n keyword">as</span> <span class=3D"token variable">$part</span><span class=
+=3D"token punctuation">)</span><span class=3D"token punctuation">{</span>
+    <span class=3D"token keyword">echo</span> <span class=3D"token variable=
+">$part</span> <span class=3D"token punctuation">.</span> <span class=3D"to=
+ken double-quoted-string string">"&lt;br&gt;"</span><span class=3D"token pu=
+nctuation">;</span>
+<span class=3D"token punctuation">}</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span>=
+<span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span><=
+span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-size=
+r" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<hr>
+				<h2>Position Anchors</h2>
+				<p>There are certain situations where you want to match at the beginnin=
+g or end of a line, word, or string. To do this you can use anchors. Two co=
+mmon anchors are caret (<code>^</code>) which represent the start of the st=
+ring, and the dollar (<code>$</code>) sign which represent the end of the s=
+tring.</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th>RegExp</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>^p</code></td>
+								<td>Matches the letter p at the beginning of a line.</td>
+							</tr>
+							<tr>
+								<td><code>p$</code></td>
+								<td>Matches the letter p at the end of a line.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>The regular expression in the following example will display only th=
+ose names from the names array which start with the letter "J" using the PH=
+P <code>preg_grep()</code> function:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dma=
+tch-strings-beginning-with-specific-characters-using-regular-expression" ta=
+rget=3D"_blank" class=3D"try-btn" title=3D"Run this code to view the output=
+">Run this code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/^J/"</spa=
+n><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$names</span> <span class=3D"token operator"=
+>=3D</span> <span class=3D"token keyword">array</span><span class=3D"token =
+punctuation">(</span><span class=3D"token double-quoted-string string">"Jho=
+n Carter"</span><span class=3D"token punctuation">,</span> <span class=3D"t=
+oken double-quoted-string string">"Clark Kent"</span><span class=3D"token p=
+unctuation">,</span> <span class=3D"token double-quoted-string string">"Joh=
+n Rambo"</span><span class=3D"token punctuation">)</span><span class=3D"tok=
+en punctuation">;</span>
+<span class=3D"token variable">$matches</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token function">preg_grep</span><span class=3D=
+"token punctuation">(</span><span class=3D"token variable">$pattern</span><=
+span class=3D"token punctuation">,</span> <span class=3D"token variable">$n=
+ames</span><span class=3D"token punctuation">)</span><span class=3D"token p=
+unctuation">;</span>
+=20
+<span class=3D"token comment">// Loop through matches array and display mat=
+ched names</span>
+<span class=3D"token keyword">foreach</span><span class=3D"token punctuatio=
+n">(</span><span class=3D"token variable">$matches</span> <span class=3D"to=
+ken keyword">as</span> <span class=3D"token variable">$match</span><span cl=
+ass=3D"token punctuation">)</span><span class=3D"token punctuation">{</span=
+>
+    <span class=3D"token keyword">echo</span> <span class=3D"token variable=
+">$match</span> <span class=3D"token punctuation">.</span> <span class=3D"t=
+oken double-quoted-string string">"&lt;br&gt;"</span><span class=3D"token p=
+unctuation">;</span>
+<span class=3D"token punctuation">}</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span>=
+<span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span><=
+span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-size=
+r" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<hr>
+				<h2>Pattern Modifiers</h2>
+				<p>A pattern modifier allows you to control the way a pattern match is =
+handled. Pattern modifiers are placed directly after the regular expression=
+, for example, if you want to search for a pattern in a case-insensitive ma=
+nner, you can use the <code>i</code> modifier, like this: <code>/pattern/i<=
+/code>. The following table lists some of the most commonly used pattern mo=
+difiers.</p>
+				<div class=3D"shadow">
+					<table class=3D"data">
+						<thead>
+							<tr>
+								<th>Modifier</th>
+								<th>What it Does</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>i</code></td>
+								<td>Makes the match case-insensitive manner.</td>
+							</tr>
+							<tr>
+								<td><code>m</code></td>
+								<td>Changes the behavior of <code>^</code> and <code>$</code> to ma=
+tch against a newline boundary (i.e. start or end of each line within a mul=
+tiline string), instead of a string boundary.</td>
+							</tr>
+							<tr>
+								<td><code>g</code></td>
+								<td>Perform a global match i.e. finds all occurrences.</td>
+							</tr>
+							<tr>
+								<td><code>o</code></td>
+								<td>Evaluates the expression only once.</td>
+							</tr>
+							<tr>
+								<td><code>s</code></td>
+								<td>Changes the behavior of <code>.</code> (dot) to match all chara=
+cters, including newlines.</td>
+							</tr>
+							<tr>
+								<td><code>x</code></td>
+								<td>Allows you to use whitespace and comments within a regular expr=
+ession for clarity.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>			=09
+				<p>The following example will show you how to perform a global case-ins=
+ensitive search using the <code>i</code> modifier and the PHP <code>preg_ma=
+tch_all()</code> function.</p>
+                <!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dma=
+tch-the-pattern-in-a-case-insensitive-manner-using-regular-expression" targ=
+et=3D"_blank" class=3D"try-btn" title=3D"Run this code to view the output">=
+Run this code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/color/i"<=
+/span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"Color red is =
+more visible than color blue in daylight."</span><span class=3D"token punct=
+uation">;</span>
+<span class=3D"token variable">$matches</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token function">preg_match_all</span><span cla=
+ss=3D"token punctuation">(</span><span class=3D"token variable">$pattern</s=
+pan><span class=3D"token punctuation">,</span> <span class=3D"token variabl=
+e">$text</span><span class=3D"token punctuation">,</span> <span class=3D"to=
+ken variable">$array</span><span class=3D"token punctuation">)</span><span =
+class=3D"token punctuation">;</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token variable">$m=
+atches</span> <span class=3D"token punctuation">.</span> <span class=3D"tok=
+en double-quoted-string string">" matches were found."</span><span class=3D=
+"token punctuation">;</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-si=
+zer" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>Similarly, the following example shows how to match at the beginning=
+ of every line in a multi-line string using <code>^</code> anchor and <code=
+>m</code> modifier with PHP <code>preg_match_all()</code> function.</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dma=
+tch-a-pattern-in-a-multiline-string-using-regular-expression" target=3D"_bl=
+ank" class=3D"try-btn" title=3D"Run this code to view the output">Run this =
+code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token double-quoted-string string">"/^color/im=
+"</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token double-quoted-string string">"Color red is =
+more visible than \ncolor blue in daylight."</span><span class=3D"token pun=
+ctuation">;</span>
+<span class=3D"token variable">$matches</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token function">preg_match_all</span><span cla=
+ss=3D"token punctuation">(</span><span class=3D"token variable">$pattern</s=
+pan><span class=3D"token punctuation">,</span> <span class=3D"token variabl=
+e">$text</span><span class=3D"token punctuation">,</span> <span class=3D"to=
+ken variable">$array</span><span class=3D"token punctuation">)</span><span =
+class=3D"token punctuation">;</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token variable">$m=
+atches</span> <span class=3D"token punctuation">.</span> <span class=3D"tok=
+en double-quoted-string string">" matches were found."</span><span class=3D=
+"token punctuation">;</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-si=
+zer" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<hr>
+				<h2>Word Boundaries</h2>
+				<p>A word boundary character ( <code>\b</code>) helps you search for th=
+e words that begins and/or ends with a pattern. For example, the regexp <co=
+de>/\bcar/</code> matches the words beginning with the pattern car, and wou=
+ld match cart, carrot, or cartoon, but would not match oscar.</p>
+				<p>Similarly, the regexp <code>/car\b/</code> matches the words ending =
+with the pattern car, and would match scar, oscar, or supercar, but would n=
+ot match cart. Likewise, the <code>/\bcar\b/</code> matches the words begin=
+ning and ending with the pattern car, and would match only the word car.</p=
+>
+				<p>The following example will highlight the words beginning with car in=
+ bold:</p>
+				<!--Code box-->
+                <div class=3D"example">
+                    <div class=3D"codebox">
+                        <div class=3D"codebox-title"><h4>Example</h4><a hre=
+f=3D"https://www.tutorialrepublic.com/codelab.php?topic=3Dphp&amp;file=3Dma=
+tch-words-starts-or-ends-with-a-pattern-using-regular-expression" target=3D=
+"_blank" class=3D"try-btn" title=3D"Run this code to view the output">Run t=
+his code <span>=C2=BB</span></a></div>
+                        <pre class=3D"syntax-highlighter line-numbers langu=
+age-php"><code class=3D" language-php"><span class=3D"token php language-ph=
+p"><span class=3D"token delimiter important">&lt;?php</span>
+<span class=3D"token variable">$pattern</span> <span class=3D"token operato=
+r">=3D</span> <span class=3D"token single-quoted-string string">'/\bcar\w*/=
+'</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$replacement</span> <span class=3D"token ope=
+rator">=3D</span> <span class=3D"token single-quoted-string string">'&lt;b&=
+gt;$0&lt;/b&gt;'</span><span class=3D"token punctuation">;</span>
+<span class=3D"token variable">$text</span> <span class=3D"token operator">=
+=3D</span> <span class=3D"token single-quoted-string string">'Words beginin=
+g with car: cart, carrot, cartoon. Words ending with car: scar, oscar, supe=
+rcar.'</span><span class=3D"token punctuation">;</span>
+<span class=3D"token keyword">echo</span> <span class=3D"token function">pr=
+eg_replace</span><span class=3D"token punctuation">(</span><span class=3D"t=
+oken variable">$pattern</span><span class=3D"token punctuation">,</span> <s=
+pan class=3D"token variable">$replacement</span><span class=3D"token punctu=
+ation">,</span> <span class=3D"token variable">$text</span><span class=3D"t=
+oken punctuation">)</span><span class=3D"token punctuation">;</span>
+<span class=3D"token delimiter important">?&gt;</span></span><span aria-hid=
+den=3D"true" class=3D"line-numbers-rows"><span style=3D"height: 24px;"></sp=
+an><span style=3D"height: 24px;"></span><span style=3D"height: 24px;"></spa=
+n><span style=3D"height: 48px;"></span><span style=3D"height: 24px;"></span=
+><span style=3D"height: 24px;"></span></span><span class=3D"line-numbers-si=
+zer" style=3D"display: none;"></span></code></pre>
+                    </div>
+                </div>
+                <!--End:Code box-->
+				<p>We hope you have understood the basics of regular expression. To lea=
+rn how to validate form data using regular expression, please check out the=
+ tutorial on <a href=3D"https://www.tutorialrepublic.com/php-tutorial/php-f=
+orm-validation.php">PHP Form Validation</a>.</p>
+                <!--Bottom Navigation-->
+                <div class=3D"bottom-link clearfix">
+                    <a href=3D"https://www.tutorialrepublic.com/php-tutoria=
+l/php-json-parsing.php" class=3D"previous-page-bottom">Previous Page</a>
+                    <a href=3D"https://www.tutorialrepublic.com/php-tutoria=
+l/php-exception-handling.php" class=3D"next-page-bottom">Next Page</a>
+                </div>
+                <!--End:Bottom Navigation-->
+                <!-- InstanceEndEditable -->
+                <div class=3D"bottom-ad clearfix">
+
+     <div class=3D"ad-label">Advertisements</div>
+
+     <!--Rectangle Left-->
+     <div class=3D"rectangle-left fl" style=3D"margin: 0px; padding: 0px; b=
+order-width: 0px; width: 0px; height: 0px;">
+       =20
+        <!-- Large Rectangle Left -->
+        <ins class=3D"adsbygoogle" style=3D"display: inline-block; width: 0=
+px; height: 0px;" data-ad-client=3D"ca-pub-9107540490929984" data-ad-slot=
+=3D"8162953958" data-adsbygoogle-status=3D"done" data-ad-status=3D"unfilled=
+"><div id=3D"aswift_2_host" tabindex=3D"0" title=3D"Advertisement" aria-lab=
+el=3D"Advertisement" style=3D"border: none; height: 0px; width: 0px; margin=
+: 0px; padding: 0px; position: relative; visibility: visible; background-co=
+lor: transparent; display: inline-block; overflow: hidden; opacity: 0;"><if=
+rame id=3D"aswift_2" name=3D"aswift_2" browsingtopics=3D"true" style=3D"lef=
+t: 0px; position: absolute; top: 0px; border: 0px; width: 0px; height: 0px;=
+" sandbox=3D"allow-forms allow-popups allow-popups-to-escape-sandbox allow-=
+same-origin allow-scripts allow-top-navigation-by-user-activation" width=3D=
+"0" height=3D"0" frameborder=3D"0" marginwidth=3D"0" marginheight=3D"0" vsp=
+ace=3D"0" hspace=3D"0" allowtransparency=3D"true" scrolling=3D"no" allow=3D=
+"attribution-reporting" src=3D"cid:frame-310B6CFCFE4D2755FCA1A2B731089889@m=
+html.blink" data-google-container-id=3D"a!3" data-google-query-id=3D"CKLLgO=
+WH04MDFQW6SwUdPpQL-Q" data-load-complete=3D"true"></iframe></div></ins>
+       =20
+     </div>
+     <!--End:Rectangle Left-->
+
+     <!--Rectangle Right-->
+     <div class=3D"rectangle-right fr" style=3D"margin: 0px; padding: 0px; =
+border-width: 0px; width: 0px; height: 0px;">
+       =20
+        <!-- Large Rectangle Right -->
+        <ins class=3D"adsbygoogle" style=3D"display: inline-block; width: 0=
+px; height: 0px;" data-ad-client=3D"ca-pub-9107540490929984" data-ad-slot=
+=3D"3324015654" data-adsbygoogle-status=3D"done" data-ad-status=3D"unfilled=
+"><div id=3D"aswift_3_host" tabindex=3D"0" title=3D"Advertisement" aria-lab=
+el=3D"Advertisement" style=3D"border: none; height: 0px; width: 0px; margin=
+: 0px; padding: 0px; position: relative; visibility: visible; background-co=
+lor: transparent; display: inline-block; overflow: hidden; opacity: 0;"><if=
+rame id=3D"aswift_3" name=3D"aswift_3" browsingtopics=3D"true" style=3D"lef=
+t: 0px; position: absolute; top: 0px; border: 0px; width: 0px; height: 0px;=
+" sandbox=3D"allow-forms allow-popups allow-popups-to-escape-sandbox allow-=
+same-origin allow-scripts allow-top-navigation-by-user-activation" width=3D=
+"0" height=3D"0" frameborder=3D"0" marginwidth=3D"0" marginheight=3D"0" vsp=
+ace=3D"0" hspace=3D"0" allowtransparency=3D"true" scrolling=3D"no" allow=3D=
+"attribution-reporting" src=3D"cid:frame-1F1D91B2BA94E4FAB19D918969CABA96@m=
+html.blink" data-google-container-id=3D"a!4" data-google-query-id=3D"CNGlge=
+WH04MDFS4PgwMdu8wF4Q" data-load-complete=3D"true"></iframe></div></ins>
+       =20
+     </div>
+     <!--End:Rectangle Right-->
+
+</div>            </div>
+            <!--End:Text Content-->
+            <!--Feedback Form-->
+			<div class=3D"snippets">
+	<a href=3D"https://www.tutorialrepublic.com/snippets/gallery.php" target=
+=3D"_blank"><img src=3D"https://www.tutorialrepublic.com/lib/images/bootstr=
+ap-code-snippets.png" alt=3D"Bootstrap UI Design Templates"></a>
+</div>            <!--End:Feedback Form-->
+        </div>       =20
+        <div class=3D"rightcolumn">
+            <div class=3D"sidebar">
+   =20
+    <div class=3D"ad-label">Advertisements</div>
+
+    <div class=3D"skyscraper primary">
+       =20
+        <!-- Premium Skyscraper -->
+        <ins class=3D"adsbygoogle" style=3D"display:inline-block;width:160p=
+x;height:600px" data-ad-client=3D"ca-pub-9107540490929984" data-ad-slot=3D"=
+4376141825" data-adsbygoogle-status=3D"done" data-ad-status=3D"unfilled"><d=
+iv id=3D"aswift_4_host" tabindex=3D"0" title=3D"Advertisement" aria-label=
+=3D"Advertisement" style=3D"border: none; height: 600px; width: 160px; marg=
+in: 0px; padding: 0px; position: relative; visibility: visible; background-=
+color: transparent; display: inline-block;"><iframe id=3D"aswift_4" name=3D=
+"aswift_4" browsingtopics=3D"true" style=3D"left:0;position:absolute;top:0;=
+border:0;width:160px;height:600px;" sandbox=3D"allow-forms allow-popups all=
+ow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navig=
+ation-by-user-activation" width=3D"160" height=3D"600" frameborder=3D"0" ma=
+rginwidth=3D"0" marginheight=3D"0" vspace=3D"0" hspace=3D"0" allowtranspare=
+ncy=3D"true" scrolling=3D"no" allow=3D"attribution-reporting" src=3D"cid:fr=
+ame-DAA6E6292D0624D8E80B76D7B6ACAFE6@mhtml.blink" data-google-container-id=
+=3D"a!5" data-google-query-id=3D"COHbwZaC04MDFVkSgwMdFW4INw" data-load-comp=
+lete=3D"true"></iframe></div></ins>
+       =20
+    </div>
+
+   =20
+<!-- Bottom Skyscraper -->
+<ins class=3D"adsbygoogle" style=3D"display:inline-block;width:160px;height=
+:600px" data-ad-client=3D"ca-pub-9107540490929984" data-ad-slot=3D"33879844=
+71" data-adsbygoogle-status=3D"done" data-ad-status=3D"unfilled"><div id=3D=
+"aswift_5_host" tabindex=3D"0" title=3D"Advertisement" aria-label=3D"Advert=
+isement" style=3D"border: none; height: 600px; width: 160px; margin: 0px; p=
+adding: 0px; position: relative; visibility: visible; background-color: tra=
+nsparent; display: inline-block;"><iframe id=3D"aswift_5" name=3D"aswift_5"=
+ browsingtopics=3D"true" style=3D"left:0;position:absolute;top:0;border:0;w=
+idth:160px;height:600px;" sandbox=3D"allow-forms allow-popups allow-popups-=
+to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-u=
+ser-activation" width=3D"160" height=3D"600" frameborder=3D"0" marginwidth=
+=3D"0" marginheight=3D"0" vspace=3D"0" hspace=3D"0" allowtransparency=3D"tr=
+ue" scrolling=3D"no" allow=3D"attribution-reporting" src=3D"cid:frame-6CCAA=
+297164D6400C93B267EDD052737@mhtml.blink" data-google-container-id=3D"a!6" d=
+ata-google-query-id=3D"CJPowZaC04MDFW6-SwUduygJeg" data-load-complete=3D"tr=
+ue"></iframe></div></ins>
+
+</div>        </div>
+    </div>
+    <!--Footer-->
+	<!--Footer-->
+<div class=3D"footer">
+    <div class=3D"appeal">
+        <div class=3D"wrapper">
+            <p>Is this website helpful to you? Please give us a
+            <a href=3D"https://www.tutorialrepublic.com/like.php">like</a>,
+            or share your <a href=3D"https://www.tutorialrepublic.com/conta=
+ct-us.php" target=3D"_blank">feedback</a><em> to help us improve</em>.
+            Connect with us on <a href=3D"https://www.facebook.com/tutorial=
+republic" target=3D"_blank">Facebook</a> and <a href=3D"https://twitter.com=
+/tutrepublic" target=3D"_blank">Twitter</a> for the latest updates.</p>    =
+          =20
+        </div>
+    </div>
+    <div class=3D"footer-inner">
+        <div class=3D"wrapper clearfix">               =20
+            <div class=3D"link-box">
+                <h4>About Us</h4>
+                <div class=3D"clearfix">
+                    <a href=3D"https://www.tutorialrepublic.com/about-us.ph=
+p">Our Story</a>                   =20
+                    <a href=3D"https://www.tutorialrepublic.com/terms-of-us=
+e.php">Terms of Use</a>
+                    <a href=3D"https://www.tutorialrepublic.com/privacy-pol=
+icy.php">Privacy Policy</a>                   =20
+                </div>
+            </div>
+            <div class=3D"link-box">
+                <h4>Contact</h4>
+                <div class=3D"clearfix">
+                    <a href=3D"https://www.tutorialrepublic.com/contact-us.=
+php">Contact Us</a>                   =20
+                    <a href=3D"https://www.tutorialrepublic.com/contact-us.=
+php" target=3D"_blank">Report Error</a>
+                    <a href=3D"https://www.tutorialrepublic.com/advertise-w=
+ith-us.php">Advertise</a>                   =20
+                </div>
+            </div>
+            <div class=3D"tool-box">
+                <h4>Interactive Tools</h4>
+                <div class=3D"tools-list clearfix" id=3D"tools">
+					<a href=3D"https://www.tutorialrepublic.com/bootstrap-icons-classes.ph=
+p" target=3D"_blank">Bootstrap Icon Search Utility</a>
+                    <a href=3D"https://www.tutorialrepublic.com/html-format=
+ter.php" target=3D"_blank">HTML Formatter</a>
+                    <a href=3D"https://www.tutorialrepublic.com/faq/what-is=
+-the-maximum-length-of-title-and-meta-description-tag.php">Title &amp; Meta=
+ Length Calculator</a>
+                    <a href=3D"https://www.tutorialrepublic.com/html-refere=
+nce/html-color-picker.php">HTML Color Picker</a>
+                    <a href=3D"https://www.tutorialrepublic.com/twitter-boo=
+tstrap-button-generator.php" target=3D"_blank">Bootstrap Button Generator</=
+a>
+                    <a href=3D"https://www.tutorialrepublic.com/codelab.php=
+?topic=3Dsql&amp;file=3Dselect-all" target=3D"_blank">SQL Playground</a>
+                    <a href=3D"https://www.tutorialrepublic.com/font-awesom=
+e-icons-classes.php" target=3D"_blank">Font Awesome Icon Finder</a>
+                    <a href=3D"https://www.tutorialrepublic.com/codelab.php=
+?topic=3Dhtml&amp;file=3Dhello-world" target=3D"_blank">HTML Editor</a>
+                </div>
+            </div>
+            <div class=3D"footer-logo">
+                <p><img src=3D"https://www.tutorialrepublic.com/lib/images/=
+logo.svg" alt=3D"TutorialRepublic"></p><p>
+					</p><div>
+						<a href=3D"https://www.buymeacoffee.com/tutrepublic" class=3D"bmc-btn=
+" rel=3D"nofollow" target=3D"_blank">
+    						<img src=3D"https://www.tutorialrepublic.com/lib/images/bmc-btn.p=
+ng" alt=3D"BMC">
+						</a>
+					</div>
+            </div>
+        </div>
+    </div>          =20
+        <div class=3D"bottom-strip">
+        <div class=3D"wrapper">
+            <div class=3D"notice">Copyright =C2=A9 2024 Tutorial Republic. =
+All Rights Reserved.</div>
+            <div class=3D"social-media">
+                <em>Share This:</em>
+                <a href=3D"https://facebook.com/sharer.php?u=3Dhttps://www.=
+tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php" title=3D=
+"Facebook"><i class=3D"icon-facebook"></i></a>
+                <a href=3D"https://twitter.com/share?text=3DRegular%20Expre=
+ssions%20in%20PHP%20-%20&amp;url=3Dhttps://www.tutorialrepublic.com%2Fphp-t=
+utorial%2Fphp-regular-expressions.php" id=3D"tweet-btn" title=3D"Twitter"><=
+i class=3D"icon-twitter"></i></a>
+                <a href=3D"https://mail.google.com/mail/?view=3Dcm&amp;fs=
+=3D1&amp;su=3DRegular%20Expressions%20in%20PHP%20&amp;body=3Dhttps://www.tu=
+torialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php" id=3D"emai=
+l-btn" rel=3D"noreferrer" title=3D"Gmail"><i class=3D"icon-mail"></i></a>
+            </div>
+        </div>           =20
+    </div>
+   =20
+</div>
+<!--End:Footer-->
+   =20
+<div class=3D"backdrop mobile-only"></div>
+
+<!-- TutorialRepublic base script -->
+
+
+
+    <!--End:Footer-->
+
+<iframe name=3D"__tcfapiLocator" src=3D"cid:frame-558B994E70C22388BA8D5867B=
+3DB398E@mhtml.blink" style=3D"display: none; width: 0px; height: 0px; borde=
+r: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe nam=
+e=3D"googlefcInactive" src=3D"cid:frame-3EB8BF32C1909B17C06F957E822F2BE6@mh=
+tml.blink" style=3D"display: none; width: 0px; height: 0px; border: none; z=
+-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name=3D"googl=
+efcLoaded" src=3D"cid:frame-06F6D00EFF41D9D12E7A7E27CAEA7C7E@mhtml.blink" s=
+tyle=3D"display: none; width: 0px; height: 0px; border: none; z-index: -100=
+0; left: -1000px; top: -1000px;"></iframe><ins class=3D"adsbygoogle adsbygo=
+ogle-noablate" data-adsbygoogle-status=3D"done" style=3D"display: none !imp=
+ortant;" data-ad-status=3D"unfilled"><div id=3D"aswift_0_host" tabindex=3D"=
+0" title=3D"Advertisement" aria-label=3D"Advertisement" style=3D"border: no=
+ne; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative;=
+ visibility: visible; background-color: transparent; display: inline-block;=
+"><iframe id=3D"aswift_0" name=3D"aswift_0" browsingtopics=3D"true" style=
+=3D"left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefi=
+nedpx;" sandbox=3D"allow-forms allow-popups allow-popups-to-escape-sandbox =
+allow-same-origin allow-scripts allow-top-navigation-by-user-activation" fr=
+ameborder=3D"0" marginwidth=3D"0" marginheight=3D"0" vspace=3D"0" hspace=3D=
+"0" allowtransparency=3D"true" scrolling=3D"no" allow=3D"attribution-report=
+ing" src=3D"cid:frame-44D2E86A887CB2A803700AAB4F6AD898@mhtml.blink" data-go=
+ogle-container-id=3D"a!1" data-load-complete=3D"true"></iframe></div></ins>=
+<iframe src=3D"cid:frame-BEDB6A06E2014425A236C3507A213B39@mhtml.blink" styl=
+e=3D"display: none;"></iframe><iframe src=3D"cid:frame-352774EF28A617B867A9=
+276E29AEE5F7@mhtml.blink" width=3D"0" height=3D"0" style=3D"display: none;"=
+></iframe></body><!-- InstanceEnd --><iframe id=3D"google_esf" name=3D"goog=
+le_esf" src=3D"cid:frame-3AACE82C51F2511111D00D6EFAB754CA@mhtml.blink" styl=
+e=3D"display: none;"></iframe></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b16875fe-0bd4-4e82-9f55-90488a5257ac@mhtml.blink
+
+@charset "utf-8";
+
+html, body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, img { margin: 0px; =
+padding: 0px; border: 0px; font: inherit; vertical-align: baseline; }
+
+html, body { min-height: 100%; }
+
+p { margin: 0px 0px 15px; }
+
+ol, ul { margin: 0px 0px 15px; }
+
+a, a:active, a:visited { outline: none; color: rgb(29, 183, 159); text-deco=
+ration: none; }
+
+a img { border: none; outline: none; }
+
+p code, table td:last-child code, .content ul li code, code.mark { padding:=
+ 2px 6px; font-size: 94%; color: rgb(51, 51, 51); background-color: rgb(241=
+, 241, 241); border-radius: 3px; }
+
+a code { color: inherit; background: none; padding: 0px; }
+
+table { border-collapse: collapse; border-spacing: 0px; }
+
+table td { vertical-align: top; }
+
+body { min-width: 1320px; color: rgb(65, 65, 65); background: rgb(250, 250,=
+ 250); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helveti=
+ca Neue", sans-serif; font-size: 17px; line-height: 1.7; }
+
+input, select, textarea, button, div, span, a { box-sizing: border-box; }
+
+h1, h2, h3, h4 { color: rgb(38, 38, 38); margin: 20px 0px 10px; line-height=
+: 1.5; font-weight: 600; }
+
+h1 { font-size: 34px; margin-top: 17px; }
+
+h2 { font-size: 28px; }
+
+h3 { font-size: 22px; }
+
+.space { margin-bottom: 30px !important; }
+
+.break { margin-bottom: 20px !important; }
+
+.text-center { text-align: center !important; }
+
+.scroll { height: 195px; overflow-y: scroll; }
+
+.scroll.large { height: 245px; }
+
+.scroll.xlarge { height: 290px; }
+
+.scroll.xxlarge { height: 340px; }
+
+sup { font-size: 13px; }
+
+h1 sup { background: rgb(236, 0, 0); border-radius: 3px; padding: 5px 10px;=
+ font-size: 15px; color: rgb(255, 255, 255); position: relative; top: 5px; =
+}
+
+.leaderboard { padding-top: 18px; position: relative; box-sizing: content-b=
+ox; height: 91px; overflow: hidden; }
+
+.intro-image img { display: block; margin: 10px 0px 25px; width: 100%; }
+
+.clearfix::after { content: "."; display: block; height: 0px; clear: both; =
+visibility: hidden; }
+
+code, .code, .syntax, .green-box, .sky-box, .gray-box, .pink-box, .red-box,=
+ .at-rule, .codebox pre, .console-output, .command { font-size: 16px; font-=
+family: Consolas, Monaco, Courier, monospace; }
+
+.console-output { margin: 15px 0px; }
+
+.command { background: rgb(242, 242, 242); padding: 16px 18px; margin: 15px=
+ 0px 25px; border-radius: 3px; }
+
+hr { border-top: none; border-right: none; border-left: none; border-image:=
+ initial; border-bottom: 1px solid rgb(231, 233, 237); height: 1px; margin:=
+ 40px 0px 30px; }
+
+.summary, .topic { border-style: solid; border-color: rgb(234, 234, 234); b=
+order-image: initial; border-width: 1px 0px; margin: 20px 0px; padding: 10p=
+x 0px; color: rgb(142, 154, 166); }
+
+h2.section-title span { display: inline-block; border-bottom: 4px solid rgb=
+(201, 215, 224); padding: 0px 50px 12px 0px; }
+
+.wrapper { width: 1320px; padding: 0px 15px; margin: 0px auto; }
+
+.header { background: rgb(35, 56, 78); padding: 16px 0px; }
+
+input.search { background: rgb(255, 255, 255); border: 0px none; color: rgb=
+(128, 126, 126); float: left; height: 38px; font-size: 14px; outline: none =
+medium; padding: 6px 14px; width: 500px; border-radius: 2px; box-shadow: rg=
+ba(0, 0, 0, 0.6) 0px 0px 1px; font-family: inherit; }
+
+.search-btn { color: rgba(0, 0, 0, 0.6); background: rgb(235, 235, 235); bo=
+rder: none; outline: none; cursor: pointer; float: left; height: 38px; widt=
+h: 44px; display: block; margin-left: -2px; border-radius: 0px 2px 2px 0px;=
+ box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 1px; }
+
+.logo img { height: 44px; margin: -3px 0px; display: block; }
+
+.site-search { float: left; margin-left: 8%; }
+
+.menu { background-color: rgb(245, 245, 245); box-shadow: rgba(0, 0, 0, 0.1=
+5) 0px 1px 1px; position: relative; z-index: 9; }
+
+.menu a { color: rgb(102, 102, 102); display: inline-block; padding: 0px 10=
+px; text-decoration: none; font-size: 14px; font-weight: 600; height: 48px;=
+ line-height: 48px; }
+
+.menu a:first-child { margin-left: -10px; }
+
+.menu a.tool-link { float: right; display: block; border-radius: 40px; line=
+-height: normal; position: relative; height: auto; top: 8px; padding: 6px 1=
+2px; color: rgb(30, 187, 163); border: 1px double rgb(30, 187, 163); }
+
+.fl, .logo { float: left; }
+
+.leftcolumn { width: 240px; float: left; font-size: 16px; color: rgb(79, 79=
+, 79); }
+
+.centercolumn { width: 870px; float: left; }
+
+.rightcolumn { width: 160px; float: right; }
+
+.content { background: rgb(255, 255, 255); padding: 12px 40px 20px; border-=
+right: 1px solid rgb(222, 222, 222); border-bottom: 1px solid rgb(222, 222,=
+ 222); border-left: 1px solid rgb(222, 222, 222); border-image: initial; bo=
+rder-top: none; border-radius: 1px; }
+
+.sidebar { padding-top: 18px; margin-top: 12px; position: relative; }
+
+.leftcolumn .segment { margin: 18px 0px 12px; position: relative; font-size=
+: 18px; font-weight: 600; line-height: normal; }
+
+.leftcolumn a { color: rgb(79, 79, 79); display: block; border-bottom: 1px =
+solid transparent; }
+
+.leftcolumn ul { list-style: none; padding: 0px; margin: 0px; }
+
+.segment, .chapters, .chapters a, .toggle-tree-menu { float: left; clear: b=
+oth; }
+
+.toggle-tree-menu { height: 30px; }
+
+.toggle-tree-menu span { display: none; }
+
+h1 code, h2 code, h3 code { font: inherit; }
+
+.color-box { margin: 20px 0px; padding-left: 20px; position: relative; }
+
+.note-box, .warning-box, .tip-box { padding: 15px 15px 2px 28px; }
+
+.content ul li { margin-top: 7px; }
+
+.extra { padding-top: 5px; }
+
+.green-box, .sky-box, .gray-box, .red-box, .pink-box { color: rgb(0, 0, 0);=
+ margin: 15px 0px 20px; padding: 15px 20px; background-color: rgb(246, 248,=
+ 250); border: 1px solid rgb(215, 226, 236); }
+
+.example { background: rgb(244, 245, 246); padding: 3px; margin: 15px 0px 2=
+0px; }
+
+.codebox { background: rgb(255, 255, 255); border: 1px solid rgb(221, 221, =
+221); }
+
+.codebox-title { height: 42px; padding-left: 12px; border-bottom: 1px solid=
+ rgb(221, 221, 221); background: rgb(245, 245, 245); }
+
+.codebox-title h4 { margin: 0px; font-size: 18px; line-height: 40px; float:=
+ left; font-weight: 600; }
+
+a.try-btn, a.download-btn { width: 150px; height: 100%; color: rgb(51, 51, =
+51); font-size: 15px; line-height: 40px; font-weight: 600; text-align: cent=
+er; float: right; display: block; border-left: 1px solid rgb(221, 221, 221)=
+; background: rgba(27, 31, 35, 0.08); box-sizing: border-box; font-family: =
+Arial, sans-serif; }
+
+a.try-btn span { font-size: 18px; line-height: normal; }
+
+.hide, .code-style, .box-size, .bottom-link, .footer, .code-style, .snippet=
+s, .report-error, .badge, .social, .ad-label, .mobile-only, ul.tree-menu li=
+ ul { display: none; }
+
+.skyscraper { width: 160px; height: 600px; overflow: hidden; margin-bottom:=
+ 20px; background: rgb(235, 236, 240); }
+
+.bottom-ad { margin-top: 50px; padding: 28px; position: relative; backgroun=
+d: url("/lib/images/smooth-line.png") center center no-repeat rgb(249, 249,=
+ 249); }
+
+.rectangle-left, .rectangle-right { width: 336px; height: 280px; overflow: =
+hidden; }
+
+.fr, a.previous-page, a.next-page, .rectangle-right, .topic-nav { float: ri=
+ght; }
+
+a.previous-page, a.next-page { width: 32px; height: 32px; line-height: 30px=
+; }
+
+.shadow { background: rgb(247, 248, 249); padding: 3px; margin: 15px 0px 20=
+px; }
+
+.color-box .shadow { margin: 0px; }
+
+.syntax { color: rgb(47, 73, 89); padding: 15px 20px; background: rgb(249, =
+249, 250); border: 1px solid rgb(221, 221, 221); }
+
+code[class*=3D"language-"], pre[class*=3D"language-"] { color: rgb(0, 0, 0)=
+; background: none; font-family: Consolas, Monaco, "Andale Mono", "Ubuntu M=
+ono", monospace; text-align: left; white-space: pre; word-break: normal; ov=
+erflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; }
+
+pre[class*=3D"language-"] { position: relative; margin: 0.5em 0px; overflow=
+: visible; padding: 0px; }
+
+pre[class*=3D"language-"] > code { position: relative; border-left: 10px so=
+lid rgb(53, 140, 203); box-shadow: rgb(53, 140, 203) -1px 0px 0px 0px, rgb(=
+223, 223, 223) 0px 0px 0px 1px; background-color: rgb(253, 253, 253); backg=
+round-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%)=
+; background-size: 3em 3em; background-origin: content-box; background-atta=
+chment: local; }
+
+code[class*=3D"language"] { max-height: inherit; height: inherit; padding: =
+0px 1em; display: block; overflow: auto; }
+
+:not(pre) > code[class*=3D"language-"] { position: relative; padding: 0.2em=
+; border-radius: 0.3em; color: rgb(201, 44, 44); border: 1px solid rgba(0, =
+0, 0, 0.1); display: inline; white-space: normal; }
+
+pre[class*=3D"language-"].line-numbers { padding-left: 0px; }
+
+pre[class*=3D"language-"].line-numbers code { padding-left: 3.8em; }
+
+pre[class*=3D"language-"].line-numbers .line-numbers-rows { left: 0px; }
+
+pre[class*=3D"language-"][data-line] { padding-top: 0px; padding-bottom: 0p=
+x; padding-left: 0px; }
+
+pre[data-line] code { position: relative; padding-left: 4em; }
+
+pre .line-highlight { margin-top: 0px; }
+
+pre.line-numbers { position: relative; padding-left: 3.8em; counter-reset: =
+linenumber 0; white-space: pre-wrap !important; }
+
+pre.line-numbers > code { position: relative; white-space: inherit; }
+
+.line-numbers-rows, .codebox pre.inactive { display: none; }
+
+.codebox pre.syntax-highlighter { margin: 0px; padding: 0px; overflow: auto=
+; }
+
+pre.line-numbers .line-numbers-rows { border-right: 3px solid rgb(108, 226,=
+ 108); }
+
+.codebox pre.syntax-highlighter > code { padding-left: 3.8em; background-im=
+age: linear-gradient(transparent 50%, rgb(248, 248, 248) 50%); font-size: 1=
+6px; line-height: 1.5; overflow-wrap: break-word; box-shadow: none !importa=
+nt; font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace =
+!important; }
+
+.codebox pre.syntax-highlighter, .codebox pre.syntax-highlighter code { bor=
+der: none; width: 100%; box-sizing: border-box; }
+
+pre.line-numbers code, pre.line-numbers .line-numbers-rows { padding-top: 2=
+px; padding-bottom: 2px; }
+
+pre.single-line code, pre.single-line .line-numbers-rows { padding-top: 13p=
+x; padding-bottom: 13px; background: rgb(255, 255, 255) !important; }
+
+.preview-box { padding: 15px; text-align: center; cursor: pointer; overflow=
+: hidden; background: rgb(255, 255, 255); border: 1px solid rgb(230, 230, 2=
+30); }
+
+.preview-box a, .preview-box img { display: block; margin: 0px auto; width:=
+ 100%; height: auto; }
+
+.download-box { text-align: center; padding: 20px 0px; margin: 20px 0px 10p=
+x; }
+
+.output-box { border-color: rgb(212, 212, 212); border-style: solid; border=
+-width: 1px 0px; padding: 5px 15px; overflow: hidden; background: rgb(255, =
+255, 255); margin: 10px 0px; }
+
+.demo-box { margin-top: 15px; }
+
+.subhead { border-bottom: 3px solid rgb(220, 227, 235); margin-bottom: 15px=
+; padding-bottom: 10px; }
+
+table.data, table.description { width: 100%; font-size: 92%; }
+
+table.data th, table.data td { padding: 8px 10px; vertical-align: top; bord=
+er: 1px solid rgb(222, 226, 230); }
+
+table.data tr, table.data thead + tbody tr:nth-child(2n), table.data.descri=
+ption td { background: rgb(255, 255, 255); }
+
+table.data tr:nth-child(2n), table.data thead + tbody tr, table.data.descri=
+ption th { background: rgb(248, 248, 248); }
+
+table.data td.section { color: rgb(255, 255, 255); background: rgb(52, 58, =
+64); border-color: rgb(69, 77, 85); }
+
+table.data th { color: rgb(0, 0, 0); text-align: left; font-size: 15px; bor=
+der-bottom-width: 2px; }
+
+table.data.description th { width: 150px; border-width: 1px; }
+
+table.no-wrap tr td:first-child { white-space: nowrap; }
+
+.topic-nav { padding-right: 5px; color: rgb(208, 208, 208); }
+
+.topic-nav a { padding: 0px 15px; margin: 0px 0px 0px 5px; position: relati=
+ve; display: inline-block; }
+
+.topic-nav a::after { font-size: 25px; position: absolute; line-height: 1; =
+}
+
+.topic-nav a:first-child { margin: 0px 5px 0px 0px; }
+
+.topic-nav a:first-child::after { content: "=C2=AB"; left: -5px; }
+
+.topic-nav a:last-child::after { content: "=C2=BB"; right: -5px; }
+
+.menu a.old-version { height: 21px; font-size: 13px; line-height: 17px; bor=
+der: 1px double; border-radius: 40px; margin-right: 10px; }
+
+@media screen and (max-width: 1340px) {
+  body { min-width: 1300px; }
+  .wrapper { width: 1300px; }
+  .centercolumn { width: 850px; }
+  .bottom-ad { padding: 24px; }
+}
+
+@media screen and (max-width: 1320px) {
+  body { min-width: 1280px; }
+  .wrapper { width: 1280px; }
+  .leftcolumn { width: 230px; }
+  .centercolumn { width: 840px; }
+  .content { padding-left: 30px; padding-right: 30px; }
+  .bottom-ad { padding: 26px; }
+}
+
+@media screen and (max-width: 1300px) {
+  body { min-width: 1260px; }
+  .wrapper { width: 1260px; }
+  .centercolumn { width: 820px; }
+  .bottom-ad { padding: 21px; }
+}
+
+@media screen and (max-width: 1280px) {
+  body { min-width: 1240px; }
+  .wrapper { width: 1240px; }
+  .centercolumn { width: 800px; }
+  .content { padding-left: 25px; padding-right: 25px; }
+  .bottom-ad { padding: 19px; }
+}
+
+@media screen and (max-width: 1260px) {
+  body { min-width: 1220px; }
+  .wrapper { width: 1220px; }
+  .centercolumn { width: 780px; }
+  .bottom-ad { padding: 13px; }
+}
+
+@media screen and (max-width: 992px) {
+  body { min-width: 100%; max-width: 100%; padding-top: 46px; }
+  .wrapper { width: 100%; min-width: auto; padding: 0px; }
+  .header { height: 46px; padding: 5px 0px; position: fixed; top: 0px; left=
+: 0px; right: 0px; width: 100%; z-index: 99; }
+  .logo img { height: 30px; margin: 3px 0px 0px; }
+  .menu { width: 100%; padding-left: 15px; padding-right: 15px; overflow-x:=
+ auto; white-space: nowrap; }
+  .centercolumn { width: 100%; min-width: auto; float: none; }
+  .content { padding: 15px 30px; border-width: 0px 0px 1px; }
+  .content img { max-width: 100%; height: auto; }
+  .skyscraper { display: inline-block; }
+  .shadow, .example, .console-output, .content pre { max-width: 100%; overf=
+low-x: auto; }
+  .codebox.multi-style-mode pre { margin-top: 38px; border-top: 1px solid r=
+gb(221, 221, 221); }
+  .bottom-ad { height: auto; background: none; padding: 18px 0px 0px; posit=
+ion: relative; }
+  .rectangle-left, .rectangle-right { float: none; margin: 0px auto 20px; b=
+ackground: rgb(237, 238, 242); }
+  .leftcolumn, .footer, .social, .site-search, .topic, .code-style, .menu a=
+.tool-link, .backdrop { display: none; }
+  .summary, .topic { padding: 5px 0px; margin: 10px 0px; }
+  .leftcolumn, .centercolumn, .rightcolumn, .sidebar { float: none; }
+  .header, .menu, .centercolumn, .footer, .appeal-text { width: 100%; }
+  .rightcolumn, .sidebar { margin: 25px auto 0px; }
+  .overview { padding-right: 0px; }
+  .scroll-pane { overflow-x: auto; }
+  table.data { min-width: 480px; }
+  table.data pre { display: inline; white-space: normal; }
+  table tr th, table tr td { width: auto !important; }
+  .preview-box { padding: 6px; }
+  .leaderboard { margin: 15px 0px 20px; }
+  h1 { font-size: 30px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  .codebox pre.syntax-highlighter { overflow-x: auto; }
+  .codebox pre.syntax-highlighter > code { min-width: 614px; height: auto; =
+overflow-x: hidden; }
+}
+
+@media screen and (max-width: 830px) {
+  .content { padding: 15px; }
+}
+
+@media screen and (min-width: 993px) {
+  .site-search, .leftcolumn, .social { display: block !important; }
+  .backdrop { display: none !important; }
+  .hide-scroll { overflow-x: hidden !important; }
+}
+
+@media screen and (min-width: 1500px) {
+  body { min-width: 1350px; }
+  .wrapper { width: 1350px; }
+  .centercolumn { width: 900px; }
+  .content { padding-left: 50px; padding-right: 50px; }
+  .bottom-ad { padding: 31px; }
+}
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.tutorialrepublic.com/lib/images/smooth-line.png
+
+iVBORw0KGgoAAAANSUhEUgAAAAEAAAENCAYAAADOoA9GAAAAmklEQVQ4je3USRKCQBBE0UYRHMJZ
+ARUV73/IlsxFVkiUssEdtXgnqJ8hxhiCR3uJw8RhKlIwExnIwVwswUqswUbswB4cxAmcRQFKUIEL
+uH5yEzW4i0c/T4fG4TUyMixNP953kt9PbQXUwiLp1MOi2BYrKwTzY41HYIUy2C2wkhm2dc7sF4Ar
+wFHIhE0GF4Rb4i2NkXT5OmT/5Q3U0G63pw0SZQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.tutorialrepublic.com/lib/styles/extended-3.2.css
+
+@charset "utf-8";
+
+a:hover { color: rgb(26, 159, 139); text-decoration: underline; }
+
+.header { box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px; }
+
+.menu a:hover { color: rgb(0, 0, 0); text-decoration: none; }
+
+.menu a.tool-link:hover { color: rgb(200, 124, 243); border-color: rgb(200,=
+ 124, 243); }
+
+p.topic a.disabled { color: rgb(175, 203, 218); cursor: default; background=
+: none; }
+
+.leftcolumn a:hover { color: rgb(34, 34, 34); text-decoration: underline; }
+
+.leftcolumn a.selected:hover { text-decoration: none; }
+
+.content code.plain, .content table.data code.plain { color: rgb(0, 0, 0); =
+background: transparent; padding: 0px; border-radius: 0px; }
+
+.leftcolumn ul li code a { background: transparent; }
+
+table td:first-child code { color: rgb(0, 0, 0); background: transparent; }
+
+table td:first-child code a { color: rgb(30, 187, 163); }
+
+.note-box a { color: rgb(67, 149, 198); }
+
+.content .color-box code { background: transparent; padding: 0px; font-size=
+: 16px; color: inherit; }
+
+.content .color-box code a { background: transparent; margin: 0px; }
+
+.warning-box a { color: rgb(212, 85, 101); }
+
+.tip-box a { color: rgb(67, 152, 0); }
+
+.note-box { color: rgb(20, 66, 97); background: rgb(213, 233, 246); }
+
+.warning-box { color: rgb(145, 57, 68); background: rgb(236, 210, 215); }
+
+.tip-box { color: rgb(46, 80, 20); background: rgb(213, 239, 194); }
+
+.green-box { background-color: rgb(233, 246, 245); border: 1px solid rgb(16=
+9, 202, 198); }
+
+.sky-box { background-color: rgb(242, 247, 250); border: 1px solid rgb(143,=
+ 181, 192); }
+
+.gray-box { background-color: rgb(241, 241, 241); border: 1px solid rgb(228=
+, 228, 228); }
+
+.pink-box { background-color: rgb(249, 239, 248); border: 1px solid rgb(197=
+, 161, 195); }
+
+.red-box { background: rgb(255, 236, 236); border: 1px solid rgb(205, 148, =
+154); }
+
+.syntax-highlighter.sql span.cm-keyword { color: rgb(0, 102, 153); text-sha=
+dow: rgba(0, 124, 185, 0.6) 0px 0px 0px; }
+
+.leftcolumn a.selected { text-decoration: none; border-bottom: 1px dotted; =
+}
+
+.leftcolumn a.more { color: rgb(239, 179, 81); }
+
+.rounded { color: rgb(249, 249, 249); font-size: 12px; font-weight: 700; di=
+splay: inline-block; text-decoration: none; border-radius: 800px; backgroun=
+d-color: rgb(30, 187, 163); padding: 5px 10px; cursor: pointer; font-family=
+: "Trebuchet MS", Arial, sans-serif; }
+
+.rounded:hover { background-color: rgb(36, 162, 142); }
+
+.preview-box.unclickable { cursor: default; }
+
+.segment.affiliate i { width: 10px; height: 10px; display: inline-block; ma=
+rgin-left: 2px; background: url("/lib/images/sprite-1.0.png") 100% -691px n=
+o-repeat scroll transparent; }
+
+.segment.affiliate::before { background: rgb(239, 179, 81); }
+
+.segment.affiliate span { color: rgb(239, 179, 81); }
+
+.property, .function { color: rgb(0, 102, 153); }
+
+.keyword, .parameter { color: rgb(136, 18, 128); }
+
+.toggle { float: right; font-size: 12px; }
+
+.order-by-alphabet { display: none; }
+
+.html-tags table th:first-child, .html-tags table td:first-child { width: 1=
+30px; }
+
+.css-properties table th:first-child, .css-properties table td:first-child =
+{ width: 170px; }
+
+.terms-definition p { padding-bottom: 20px; }
+
+.terms-definition p.normal { padding-bottom: 0px; }
+
+.example-list ul { margin: 10px 0px 20px; }
+
+.line-numbers .line-numbers-rows { display: block; position: absolute; poin=
+ter-events: none; top: 0px; font-size: 100%; left: -3.8em; width: 3em; lett=
+er-spacing: -1px; border-right: 1px solid rgb(153, 153, 153); user-select: =
+none; }
+
+.line-numbers-rows > span { pointer-events: none; display: block; counter-i=
+ncrement: linenumber 1; }
+
+.line-numbers-rows > span::before { content: counter(linenumber); color: rg=
+b(153, 153, 153); display: block; padding-right: 0.8em; text-align: right; =
+}
+
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token=
+.cdata { color: rgb(153, 153, 153); }
+
+.token.punctuation { color: rgb(95, 99, 100); }
+
+.token.property, .token.tag, .token.boolean, .token.number, .token.function=
+-name, .token.constant, .token.symbol, .token.deleted { color: rgb(153, 0, =
+85); }
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.built=
+in, .token.inserted { color: rgb(102, 153, 0); }
+
+.token.function { color: rgb(221, 74, 104); }
+
+.token.operator, .token.entity, .token.url, .token.variable, .language-css =
+.token.string, .style .token.string { color: rgb(166, 127, 89); background:=
+ rgba(255, 255, 255, 0.5); }
+
+.token.atrule, .token.attr-value, .token.keyword, .token.class-name { color=
+: rgb(0, 119, 170); }
+
+.token.regex, .token.important { color: rgb(238, 153, 0); }
+
+.token.important { font-weight: 400; }
+
+.token.bold { font-weight: 700; }
+
+.token.italic { font-style: italic; }
+
+.token.entity { cursor: help; }
+
+.namespace { opacity: 0.7; }
+
+.token.tab:not(:empty)::before, .token.cr::before, .token.lf::before { colo=
+r: rgb(224, 215, 209); }
+
+.length-calculator { padding: 15px 0px 10px; }
+
+.length-calculator textarea { border: 1px solid rgb(210, 210, 210); display=
+: block; font: 13px / 21px Verdana, Arial, sans-serif; margin-bottom: 5px; =
+overflow-y: auto; padding: 5px 10px; resize: none; width: 100%; box-sizing:=
+ border-box; }
+
+.length-calculator p { padding-top: 0px; font-size: 12px; }
+
+.custom-form-element { padding-top: 20px; }
+
+a.download-source-btn { display: inline-block; background-color: rgb(73, 17=
+5, 205); background-image: linear-gradient(rgb(91, 192, 222), rgb(47, 150, =
+180)); box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px inset, rgba(0, 0, 0=
+, 0.05) 0px 1px 2px; background-repeat: repeat-x; border-width: 1px; border=
+-style: solid; border-color: rgb(66, 157, 184) rgb(59, 151, 178) rgb(55, 13=
+1, 154); color: rgb(255, 255, 255); text-shadow: rgba(0, 0, 0, 0.25) 0px -1=
+px 0px; border-radius: 6px; font-size: 18px; font-family: "Trebuchet MS", A=
+rial, sans-serif; padding: 10px 20px; text-decoration: none; }
+
+a.download-source-btn:hover { color: rgb(255, 255, 255); background-color: =
+rgb(47, 150, 180); background-image: linear-gradient(rgb(47, 150, 180), rgb=
+(47, 150, 180)); }
+
+.download-icon { width: 15px; height: 15px; display: inline-block; backgrou=
+nd: url("/lib/images/sprite-1.0.png") 0px -1230px no-repeat transparent; }
+
+.download-icon:hover { background-position: 0px -1230px; }
+
+.mysql-table-demo { font-family: monospace; margin: 15px 0px; }
+
+table.data.align-center th:first-child, table.data.align-center td:first-ch=
+ild { text-align: center; }
+
+table.data td.section strong { font-family: "Trebuchet MS", Arial, sans-ser=
+if; font-size: 15px; }
+
+table.data td img { display: block; }
+
+table.list-demo td ul { margin-top: 3px; }
+
+table.list-demo td ul li { padding-top: 0px; padding-left: 0px; background:=
+ none; }
+
+.usage { padding: 10px 18px 5px; margin-top: 15px; background-color: rgb(25=
+0, 249, 226); border-width: 1px 0px; border-color: rgb(221, 218, 170); }
+
+.usage h2, .usage h3 { margin-top: 0px; line-height: normal; }
+
+.usage li p { padding-top: 0px; }
+
+.usage a, .usage a:visited { color: rgb(93, 86, 54); }
+
+.usage a:hover { color: rgb(0, 0, 0); }
+
+.usage code { color: rgb(93, 86, 54) !important; }
+
+.usage code, .usage code a { background: transparent !important; padding: 0=
+px !important; margin: 0px !important; }
+
+a.deprecated, a.omitted, a.obsolete { display: inline-block; padding: 0px 1=
+0px; font-size: 12px; text-decoration: none; border-radius: 20px; }
+
+a.obsolete { color: rgb(255, 255, 255); background: rgb(251, 139, 137); box=
+-shadow: rgb(254, 213, 211) 2px 2px 0px; text-shadow: rgba(146, 9, 5, 0.2) =
+0px 1px 0px; }
+
+a.deprecated { color: rgb(241, 233, 243); background: rgb(198, 167, 207); b=
+ox-shadow: rgb(233, 221, 236) 2px 2px 0px; text-shadow: rgba(69, 31, 79, 0.=
+2) 0px 1px 0px; }
+
+a.omitted { color: rgb(239, 240, 241); background: rgb(187, 192, 198); box-=
+shadow: rgb(227, 230, 232) 2px 2px 0px; text-shadow: rgba(56, 61, 68, 0.2) =
+0px 1px 0px; }
+
+a.deprecated:hover, a.obsolete:hover, a.omitted:hover { text-decoration: un=
+derline; }
+
+.support { background: rgb(248, 248, 248); border: 1px solid rgb(226, 226, =
+226); color: rgb(47, 73, 89); padding: 15px; }
+
+.support table td:first-child { padding: 0px 25px; border-right: 1px dashed=
+ rgb(208, 208, 208); vertical-align: middle; }
+
+.support h2 { font-size: 16px; padding-left: 40px; margin-top: 0px; }
+
+.support ul { margin-left: 20px; }
+
+.support ul li { margin-top: 4px; }
+
+.support ul li span { color: rgb(0, 0, 0); }
+
+.support ul li span.red { color: red; }
+
+.support .badge { background: rgb(91, 192, 222); display: inline; padding: =
+2px 5px; font-size: 80%; color: rgb(255, 255, 255); text-align: center; ver=
+tical-align: baseline; border-radius: 2px; }
+
+.expand-all { margin-right: 5px; }
+
+.collapse-all { margin-left: 5px; }
+
+.expand-all, .collapse-all { font-size: 11px; cursor: pointer; }
+
+.expand-all:hover, .collapse-all:hover { text-decoration: underline; }
+
+.separator { font-size: 12px; }
+
+.toggle-tree-menu span { display: inline-block; }
+
+ul.tree-menu li { cursor: pointer; float: left; clear: both; }
+
+ul.tree-menu li.tree { margin-left: -12px; }
+
+ul.tree-menu li .shorthand { width: 100%; float: left; clear: both; padding=
+-left: 12px; background: url("/lib/images/arrow-right.png") left center no-=
+repeat transparent; }
+
+ul.tree-menu li.expand .shorthand { background: url("/lib/images/arrow-down=
+.png") left center no-repeat transparent; }
+
+ul.tree-menu li ul { display: none; float: left; margin-left: 12px; padding=
+: 0px; background: url("/lib/images/tree-vr.gif") left top repeat-y scroll =
+transparent; }
+
+ul.tree-menu li ul li { background: url("/lib/images/tree-hr.gif") 0px 14px=
+ no-repeat scroll transparent; padding-left: 17px; float: left; clear: both=
+; }
+
+h2.order-info { overflow: hidden; }
+
+h2.order-info strong { float: left; }
+
+.content dl dt { font-weight: 700; padding-top: 20px; }
+
+.content dl dd { padding-top: 10px; }
+
+a.obsolete-tag { opacity: 0.3; }
+
+.html5-badge, .css3-badge { width: 16px; height: 16px; display: inline-bloc=
+k; margin-left: -2px; position: relative; top: 3px; }
+
+.html5-badge { background: url("/lib/images/html5-icon.png") no-repeat; }
+
+.css3-badge { background: url("/lib/images/css3-icon.png") no-repeat; }
+
+.box-model { padding: 30px 10px; }
+
+.syntax table td { vertical-align: text-top; }
+
+.syntax table .keyword { white-space: nowrap; }
+
+.syntax .tag { color: rgb(0, 102, 153); }
+
+.syntax .attribute { color: rgb(111, 128, 140); }
+
+.syntax .attribute-value { color: rgb(136, 18, 128); }
+
+.action-btn { color: rgb(255, 255, 255); background: rgb(30, 187, 163); bor=
+der: none; border-radius: 1px; cursor: pointer; outline: none; transition: =
+all 0.5s ease 0s; font-size: 14px; line-height: normal; padding: 6px 15px; =
+font-weight: 700; letter-spacing: 0.5px; }
+
+.action-btn:hover { background: rgb(36, 162, 142); }
+
+.calculate-button .action-btn { float: left; margin: 0px 10px 10px 0px; }
+
+.content table.data ul li { padding-top: 3px; background-position: left 10p=
+x; }
+
+.hint { margin-bottom: -6px; }
+
+.snippets { display: block; }
+
+.snippets img { display: block; width: 100%; margin-top: 30px; border-radiu=
+s: 1px; }
+
+.footer { display: block; font-size: 14px; margin-top: 30px; color: rgba(25=
+5, 255, 255, 0.7); }
+
+.footer a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+
+.footer a:hover { color: rgb(255, 255, 255); }
+
+.bottom-strip { font-size: 13px; background: rgb(11, 29, 45); padding: 15px=
+ 0px; float: left; width: 100%; }
+
+.notice { float: left; margin-top: 6px; }
+
+.footer-inner { background: rgb(13, 34, 53); padding: 40px 0px; }
+
+.footer h4 { color: rgb(255, 255, 255); margin-top: 5px; display: inline-bl=
+ock; position: relative; text-transform: uppercase; font-style: italic; mar=
+gin-bottom: 15px; font-size: 16px; font-weight: 700; font-family: Roboto, "=
+Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+
+.footer-logo { float: right; text-align: right; margin-top: 46px; }
+
+.footer-logo img { height: 46px; opacity: 0.3; }
+
+.tool-box, .link-box { float: left; }
+
+.tool-box a, .link-box a { float: left; display: block; line-height: 1.8; m=
+argin: 4px 0px; }
+
+.tool-box { width: 32%; }
+
+.tool-box a { width: 60%; }
+
+.tool-box a:nth-child(2n) { width: 35%; margin-left: 5%; }
+
+.tool-box span { font-size: 18px; line-height: normal; position: relative; =
+top: 3px; }
+
+.link-box { width: 16%; padding-right: 30px; border-right: 1px solid rgba(0=
+, 0, 0, 0.2); }
+
+.link-box a { margin: 3px 0px; clear: both; }
+
+.footer h4::after { content: ""; height: 2px; background: rgb(30, 187, 163)=
+; position: absolute; left: 0px; width: 82%; bottom: -5px; }
+
+.footer a:last-child i { font-weight: 700; top: 2px; left: -5px; }
+
+.footer a:first-child i { left: -5px; }
+
+.appeal { font-size: 16px; background: rgb(30, 187, 163); color: rgb(255, 2=
+55, 255); padding: 16px 0px; text-align: left; }
+
+.appeal p { margin: 0px; }
+
+.appeal em { font-style: normal; }
+
+.social-media { float: right; text-align: center; }
+
+.social-media a { width: 34px; height: 34px; line-height: 32px; color: rgb(=
+255, 255, 255); opacity: 0.4; font-size: 14px; display: inline-block; margi=
+n-left: 15px; border-radius: 40px; text-align: center; border: 2px solid; }
+
+.social-media a:hover { opacity: 1; color: rgb(30, 187, 163); }
+
+.social-media .icon-mail::before { font-size: 16px; }
+
+.social-media em { font-style: normal; }
+
+a.previous-page, a.next-page { background: rgb(237, 237, 237); color: rgb(9=
+7, 97, 97); text-align: center; margin-top: 50px; position: relative; font-=
+size: 22px; font-family: icomoon !important; }
+
+a.previous-page:hover, a.next-page:hover { text-decoration: none; backgroun=
+d: rgb(30, 187, 163); color: rgb(255, 255, 255); }
+
+a.previous-page { margin-right: 38px; z-index: 9; }
+
+a.next-page { margin-right: -70px; z-index: 8; }
+
+a.previous-page::before { content: "=EE=A4=93"; }
+
+a.next-page::before { content: "=EE=A4=90"; margin-right: -3px; }
+
+.bottom-link { display: block; padding: 12px 0px; margin-top: 40px; text-tr=
+ansform: uppercase; border-style: solid; border-color: rgb(226, 226, 226); =
+border-image: initial; border-width: 1px 0px; }
+
+.bottom-link a { display: inline-block; color: rgb(52, 73, 94); opacity: 0.=
+7; text-decoration: none; font-weight: 500; padding: 5px 0px; position: rel=
+ative; }
+
+.bottom-link a:hover { opacity: 0.9; }
+
+a.previous-page-bottom { float: left; padding-left: 20px; }
+
+a.previous-page-bottom::after, a.next-page-bottom::after { position: absolu=
+te; font-size: 26px; font-family: Arial, sans-serif; font-weight: 400; line=
+-height: 1; }
+
+a.previous-page-bottom::after { content: "=C2=AB"; left: 0px; }
+
+a.next-page-bottom { float: right; padding-right: 20px; }
+
+a.next-page-bottom::after { content: "=C2=BB"; right: 0px; }
+
+a.disabled, a.disabled:hover { cursor: default; background: rgb(237, 237, 2=
+37); color: rgb(116, 116, 116); opacity: 0.6; }
+
+.bottom-link a.disabled, .bottom-link a.disabled:hover { opacity: 0.5; back=
+ground: none; }
+
+.info-tab { width: 40px; height: 40px; display: inline-block; position: abs=
+olute; top: 16px; left: 0px; }
+
+.info-tab::before, .info-tab::after { display: inline-block; color: rgb(255=
+, 255, 255); line-height: normal; font-family: icomoon; position: absolute;=
+ }
+
+.info-tab i::before, .info-tab i::after { content: ""; display: inline-bloc=
+k; position: absolute; left: 0px; bottom: -15px; transform: rotateX(60deg);=
+ }
+
+.info-tab i::before { width: 20px; height: 20px; box-shadow: rgba(0, 0, 0, =
+0.5) 12px 0px 13px inset; }
+
+.info-tab i::after { width: 0px; height: 0px; border-width: 12px; border-st=
+yle: solid; border-color: transparent transparent rgb(255, 255, 255) rgb(25=
+5, 255, 255); border-image: initial; bottom: -18px; }
+
+.note-icon { background: rgb(71, 173, 224); }
+
+.tip-icon { background: rgb(146, 205, 89); }
+
+.warning-icon { background: rgb(173, 60, 60); }
+
+.note-icon::before { font-size: 23px; content: "=EE=A4=91"; top: 8px; left:=
+ 8px; }
+
+.note-icon::after { font-size: 17px; content: "=EE=A4=92"; top: 9px; left: =
+19px; }
+
+.tip-icon::before { font-size: 24px; content: "=EE=A4=81"; top: 7px; left: =
+9px; }
+
+.warning-icon::before { font-size: 22px; content: "=EE=A4=9F"; top: 6px; le=
+ft: 10px; transform: scaleY(0.98); }
+
+.tip-icon i::before { background: rgb(117, 180, 54); }
+
+.warning-icon i::before { background: rgb(156, 54, 54); }
+
+.note-icon i::before { background: rgb(29, 126, 173); }
+
+.icon-mail::before { font-weight: 700; font-size: 19px; }
+
+.search-btn:hover { background: rgb(228, 228, 228); color: rgba(0, 0, 0, 0.=
+8); }
+
+.search-btn span::before { font-size: 25px; display: block; }
+
+.leftcolumn .segment::after { content: ""; height: 3px; background: rgb(30,=
+ 187, 163); position: absolute; left: 0px; width: 82%; bottom: -5px; }
+
+.leftcolumn .affiliate::after { background: rgb(239, 179, 81); }
+
+h2 .badge { display: inline-block; background: rgb(136, 146, 191); padding:=
+ 3px 10px; color: rgb(255, 255, 255); border-radius: 0.25em; font-size: 86%=
+; cursor: default; margin: -2px 0px; }
+
+h2 .badge.js { background: rgb(255, 193, 7); }
+
+a.try-btn:hover, a.download-btn:hover { background: rgb(30, 187, 163); colo=
+r: rgb(255, 255, 255); outline: rgb(22, 175, 145) solid 1px; border-left: n=
+one; text-decoration: none; }
+
+.download-btn::before { font-size: 12px; line-height: normal; font-family: =
+icomoon; content: "=EE=A4=86"; position: relative; top: -1px; padding-right=
+: 5px; font-weight: 400; }
+
+.code-style { display: block; float: left; margin: 6px 0px 0px 40px; line-h=
+eight: normal; }
+
+.code-style span { color: rgb(134, 134, 134); font-size: 11px; font-weight:=
+ 600; font-family: Arial; border: 1px solid rgb(204, 204, 204); border-radi=
+us: 30px; display: inline-block; padding: 6px 10px; margin-left: 5px; curso=
+r: pointer; }
+
+.code-style span:hover { color: rgb(51, 51, 51); }
+
+.code-style span.active { color: rgb(51, 51, 51); background: rgb(253, 253,=
+ 253); cursor: default; border-color: rgb(196, 196, 196); }
+
+.box-size { height: 100%; padding: 0px 10px; line-height: 40px; display: bl=
+ock; float: right; border-left: 1px solid rgb(221, 221, 221); }
+
+.box-size i { width: 26px; height: 26px; text-align: center; margin-top: 7p=
+x; cursor: pointer; display: inline-block; background: rgb(211, 211, 211); =
+border-radius: 40px; position: relative; opacity: 0.7; }
+
+.box-size i:hover { opacity: 1; }
+
+.box-size i::after, .box-size i::before { content: ""; position: absolute; =
+width: 11px; height: 8px; border: 1px solid rgb(88, 88, 88); left: 7px; top=
+: 10px; background: rgb(255, 255, 255); box-sizing: border-box; }
+
+.box-size i::before { height: 3px; top: 8px; }
+
+.box-size.maximized i::before { height: 4px; top: 11px; }
+
+.box-size.maximized i::after { display: none; }
+
+.social { float: right; margin-top: 4px; display: block; }
+
+.social a { color: rgb(255, 255, 255); font-size: 18px; line-height: normal=
+; margin-left: 15px; text-decoration: none; }
+
+.social a:hover { color: rgb(30, 187, 163); }
+
+.ad-label { color: rgb(160, 160, 160); letter-spacing: 0.5px; font-size: 10=
+.4px; text-transform: uppercase; text-align: center; position: absolute; z-=
+index: 9; left: 0px; right: 0px; max-width: 728px; display: block; }
+
+.leaderboard .ad-label, .sidebar .ad-label { top: 0px; }
+
+.bottom-ad .ad-label { top: -20px; margin: 0px auto; }
+
+a.bmc-btn img { height: 33px; margin-top: 10px; opacity: 0.7; }
+
+a.bmc-btn img:hover { opacity: 1; }
+
+ul.faq-list li a { color: rgb(79, 79, 79); }
+
+ul.faq-list li a:hover { color: rgb(34, 34, 34); }
+
+@media screen and (max-width: 992px) {
+  .site-search, .social { display: none; width: 100%; float: none; position=
+: absolute; top: 45px; margin: 0px; padding: 20px 12px; left: 0px; right: 0=
+px; box-sizing: border-box; z-index: 999; background: rgb(255, 255, 255); }
+  .site-search { padding-right: 65px; }
+  .site-search .search { margin-left: 0px; box-sizing: border-box; float: l=
+eft; height: 32px; line-height: 32px; width: 97%; }
+  .site-search .search-btn { width: 55px; float: right; height: 32px; margi=
+n-right: -55px; box-shadow: none; background: rgb(30, 187, 163); border-rad=
+ius: 2px; }
+  .site-search .search-btn i { font-size: 24px; line-height: normal; }
+  .social { text-align: center; }
+  .social a { color: rgb(65, 65, 65); margin: 0px 5%; }
+  .header button { height: 36px; color: rgb(255, 255, 255); border: none; d=
+isplay: inline-block; background: transparent; padding: 0px 15px; outline: =
+none; cursor: pointer; }
+  .header button i { font-size: 29px; line-height: 36px; }
+  .open-menu { float: left; }
+  .open-search { float: right; }
+  .open-share { float: right; }
+  .icon-bar { background: rgb(255, 255, 255); display: block; height: 2px; =
+width: 18px; margin: 4px 0px; }
+  .leftcolumn { position: fixed; left: 0px; top: 46px; bottom: 0px; width: =
+280px; padding: 0px 5px 0px 15px; overflow-y: auto; z-index: 9999; backgrou=
+nd: rgb(255, 255, 255); }
+  .tool-box, .link-box, .footer-logo { width: 100%; float: none; text-align=
+: center; padding: 0px; }
+  .tool-box a, .link-box a { float: none; display: block; margin-left: 0px =
+!important; width: 100% !important; }
+  .footer h4 { margin-top: 20px; }
+  .footer h4::after { right: 0px; margin: 0px auto; }
+  .bottom-strip { height: auto; }
+  .notice, .social-media { float: none; text-align: center; }
+  .social-media { margin: 20px 0px; }
+  .appeal { padding: 15px; text-align: center; }
+  .header .site-search { width: 100%; float: none; position: absolute; top:=
+ 45px; padding: 20px 65px 50px 10px; left: 0px; right: 0px; box-sizing: bor=
+der-box; z-index: 999; background: rgb(45, 74, 91); border-top: 1px solid r=
+gb(162, 193, 210); }
+  .header .site-search label.mobile-only { display: block; text-align: cent=
+er; color: rgb(255, 255, 255); font-size: 14px; font-weight: 700; padding-b=
+ottom: 10px; }
+  .codebox-title { position: relative; }
+  .social-media-link { margin-top: 0px; line-height: 26px; }
+  .social-media-link .appeal-text { text-align: center; }
+  .report-error { box-sizing: border-box; width: 100%; border: none; }
+  .contact-form p { float: none; }
+  .report-error .contact-form p.name, .report-error .contact-form p.email {=
+ width: 100%; }
+  .contact-form input[type=3D"text"], .contact-form textarea { box-sizing: =
+border-box; width: 100% !important; }
+  ul.tree-menu li .shorthand { display: none; }
+  ul.tree-menu li ul { margin: 0px 0px 0px 12px; background: none; display:=
+ block !important; }
+  ul.tree-menu li ul li { padding: 0px; background: none; }
+  .open-menu.mobile-only:hover, .open-nav.mobile-only:hover, .open-search-b=
+ox:hover { background: rgb(45, 74, 91); }
+  .code-style { float: none; position: absolute; top: 42px; left: 0px; marg=
+in: 5px 0px 0px 8px; }
+  .code-style span { background: rgb(236, 236, 236); }
+  .color-box .shadow { overflow: visible; }
+  .backdrop { background: rgba(0, 0, 0, 0.5); height: 100%; width: 100%; po=
+sition: fixed; z-index: 88; inset: 0px; }
+  a.previous-page, a.next-page { display: none; }
+  .bottom-ad .ad-label { top: 0px; }
+  .snippets { display: block; padding: 0px 30px; }
+  .color-box { padding-left: 0px; }
+  .note-box, .warning-box, .tip-box { padding: 15px 18px 2px; }
+  .color-box strong { margin-left: 33px; }
+  .info-tab { width: 30px; height: 30px; top: 15px; left: 18px; background:=
+ none; }
+  .info-tab i { display: none; }
+  .note-icon::before { top: 5px; left: 0px; color: rgb(20, 66, 97); }
+  .note-icon::after { top: 5px; left: 11px; color: rgb(20, 66, 97); }
+  .tip-icon::before { top: 3px; left: 4px; color: rgb(46, 80, 20); }
+  .warning-icon::before { top: 4px; left: 4px; color: rgb(145, 57, 68); }
+  a.previous-page-bottom::after, a.next-page-bottom::after { margin-top: -1=
+px; }
+}
+
+@media screen and (max-width: 830px) {
+  .snippets { padding: 0px 15px; }
+}
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.tutorialrepublic.com/lib/icomoon/style.css
+
+@charset "utf-8";
+
+@font-face { font-family: icomoon; src: url("fonts/icomoon.ttf?wamggw") for=
+mat("truetype"), url("fonts/icomoon.woff?wamggw") format("woff"); font-weig=
+ht: normal; font-style: normal; }
+
+[class^=3D"icon-"], [class*=3D" icon-"] { speak: none; font-style: normal; =
+font-weight: normal; font-variant: normal; text-transform: none; line-heigh=
+t: 1; -webkit-font-smoothing: antialiased; font-family: icomoon !important;=
+ }
+
+.icon-file-download::before { content: "=EE=A4=86"; }
+
+.icon-bookmark::before { content: "=EE=A4=80"; }
+
+.icon-bulb::before { content: "=EE=A4=81"; }
+
+.icon-close::before { content: "=EE=A4=82"; }
+
+.icon-download::before { content: "=EE=A4=83"; }
+
+.icon-eye::before { content: "=EE=A4=84"; }
+
+.icon-facebook::before { content: "=EE=A4=85"; }
+
+.icon-google-drive::before { content: "=EE=A4=87"; }
+
+.icon-google-plus::before { content: "=EE=A4=88"; }
+
+.icon-home::before { content: "=EE=A4=89"; }
+
+.icon-like::before { content: "=EE=A4=8B"; }
+
+.icon-mail::before { content: "=EE=A4=8C"; }
+
+.icon-menu::before { content: "=EE=A4=8D"; }
+
+.icon-more::before { content: "=EE=A4=8E"; }
+
+.icon-new-window::before { content: "=EE=A4=8F"; }
+
+.icon-next::before { content: "=EE=A4=90"; }
+
+.icon-notepad::before { content: "=EE=A4=91"; }
+
+.icon-pencil::before { content: "=EE=A4=92"; }
+
+.icon-previous::before { content: "=EE=A4=93"; }
+
+.icon-refresh::before { content: "=EE=A4=94"; }
+
+.icon-reply::before { content: "=EE=A4=95"; }
+
+.icon-reply-all::before { content: "=EE=A4=96"; }
+
+.icon-save::before { content: "=EE=A4=97"; }
+
+.icon-screen-rotation::before { content: "=EE=A4=98"; }
+
+.icon-search::before { content: "=EE=A4=99"; }
+
+.icon-send::before { content: "=EE=A4=9A"; }
+
+.icon-settings::before { content: "=EE=A4=9B"; }
+
+.icon-share::before { content: "=EE=A4=9C"; }
+
+.icon-tag::before { content: "=EE=A4=9D"; }
+
+.icon-twitter::before { content: "=EE=A4=9E"; }
+
+.icon-warning::before { content: "=EE=A4=9F"; }
+
+.icon-zoom-out::before { content: "=EE=A4=A0"; }
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.tutorialrepublic.com/lib/images/logo.svg
+
+<?xml version=3D"1.0" encoding=3D"UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphic=
+s/SVG/1.1/DTD/svg11.dtd'>
+<svg enable-background=3D"new 0 0 300 43.541" version=3D"1.1" viewBox=3D"0 =
+0 300 43.541" xml:space=3D"preserve" xmlns=3D"http://www.w3.org/2000/svg">
+	<g fill=3D"#fff">
+		<path d=3D"m60.888 14.541h-5.093c-0.935 0-1.713-0.789-1.713-1.713 0-0.946=
+ 0.778-1.735 1.713-1.735h13.994c0.935 0 1.713 0.79 1.713 1.735 0 0.924-0.77=
+8 1.713-1.713 1.713h-5.138v15.954c-0.067 1.035-0.946 1.825-1.982 1.758-0.95=
+8-0.046-1.735-0.812-1.781-1.758v-15.954z"/>
+		<path d=3D"m86.949 30.517c-0.034 1.013-0.913 1.78-1.927 1.735-0.947-0.046=
+-1.69-0.789-1.735-1.735v-0.812c-1.014 1.511-2.501 2.794-4.98 2.794-3.571 0-=
+5.645-2.411-5.645-6.106v-8.45c-0.045-1.014 0.721-1.893 1.735-1.916 1.002-0.=
+09 1.859 0.699 1.904 1.712v0.203 7.345c0 2.457 1.251 3.877 3.415 3.877 2.15=
+1 0 3.571-1.465 3.571-3.944v-7.278c-0.044-1.014 0.721-1.893 1.735-1.916 1.0=
+14-0.045 1.893 0.699 1.927 1.712v0.203 12.576z"/>
+		<path d=3D"m92.244 27.768v-8.36h-0.608c-0.878 0-1.555-0.722-1.555-1.555 0=
+-0.879 0.699-1.556 1.555-1.556h0.608v-2.726c0.045-1.037 0.901-1.78 1.904-1.=
+735 0.946 0.068 1.701 0.812 1.736 1.735v2.704h2.85c0.879 0 1.566 0.699 1.56=
+6 1.533 0 0.878-0.71 1.6-1.566 1.6h-2.85v7.774c0 1.442 0.721 2.028 1.949 2.=
+028 0.304 0 0.597-0.045 0.901-0.113 0.834 0 1.532 0.698 1.532 1.533 0 0.63-=
+0.394 1.172-0.958 1.419-0.8 0.271-1.645 0.405-2.501 0.405-2.659 0-4.563-1.1=
+94-4.563-4.686z"/>
+		<path d=3D"m102.55 24.319v-0.045c-0.022-4.709 3.741-8.472 8.417-8.518 4.6=
+76 0 8.484 3.785 8.507 8.473v0.022c-0.022 4.62-3.763 8.315-8.315 8.293h-0.1=
+91c-4.552 0.134-8.314-3.471-8.417-8-1e-3 -0.09-1e-3 -0.157-1e-3 -0.225zm13.=
+296 0v-0.045c0-2.816-2.028-5.115-4.89-5.115-2.884 0-4.766 2.299-4.766 5.07v=
+0.022c0 2.771 2.005 5.07 4.845 5.07 2.929 1e-3 4.811-2.253 4.811-5.002z"/>
+		<path d=3D"m123.2 17.943c0-1.014 0.766-1.803 1.757-1.848h0.045c1.014 0 1.=
+825 0.833 1.848 1.803v1.667c0.833-2.005 2.412-3.515 4.012-3.515 0.878-0.067=
+ 1.712 0.631 1.757 1.6v0.248c0.045 0.834-0.586 1.6-1.442 1.713-2.592 0.45-4=
+.349 2.434-4.349 6.196v4.71c0 1.013-0.834 1.803-1.825 1.803-0.969 0-1.803-0=
+.79-1.803-1.78v-12.597z"/>
+		<path d=3D"m135.54 11.994c0-1.059 0.902-1.78 2.074-1.78 1.194 0 2.073 0.7=
+21 2.073 1.78v0.226c0 1.037-0.879 1.78-2.073 1.78-1.172 0-2.074-0.744-2.074=
+-1.78v-0.226zm0.271 5.949c-0.023-1.014 0.767-1.848 1.735-1.848h0.068c1.036 =
+0 1.825 0.811 1.847 1.803v12.596c-0.045 1.035-0.901 1.803-1.916 1.735-0.924=
+-0.068-1.667-0.789-1.735-1.713v-12.573z"/>
+		<path d=3D"m143.16 27.609v-0.09c0-3.426 2.681-5.092 6.58-5.092 1.42-0.045=
+ 2.885 0.203 4.259 0.653v-0.405c0-2.254-1.374-3.448-3.944-3.448-1.194-0.022=
+-2.411 0.226-3.538 0.631-0.18 0.068-0.383 0.091-0.541 0.091-0.833 0-1.532-0=
+.677-1.532-1.51 0-0.655 0.406-1.217 1.014-1.465 1.623-0.631 3.357-0.947 5.1=
+15-0.924 2.388 0 4.146 0.631 5.274 1.758 1.104 1.171 1.712 2.861 1.712 4.93=
+5v7.841c0 0.969-0.789 1.735-1.758 1.758h-0.045c-0.879 0.066-1.712-0.631-1.7=
+58-1.532v-0.608c-1.284 1.532-3.222 2.389-5.228 2.298-2.974-1e-3 -5.61-1.735=
+-5.61-4.891zm10.885-1.171v-1.059c-1.172-0.451-2.389-0.652-3.607-0.652-2.343=
+ 0-3.718 0.99-3.718 2.681v0.045c0 1.51 1.352 2.389 3.11 2.389 2.366-0.024 4=
+.215-1.399 4.215-3.404z"/>
+		<path d=3D"m162.09 11.858c0-0.991 0.79-1.803 1.758-1.803h0.046c0.992-0.02=
+2 1.825 0.79 1.825 1.78v18.68c0 1.013-0.833 1.825-1.825 1.825-1.014 0-1.804=
+-0.813-1.804-1.825v-18.657z"/>
+		<path d=3D"m170.92 12.963c0-1.014 0.788-1.848 1.78-1.848h7.616c2.637 0 4.=
+71 0.789 6.062 2.096 1.172 1.239 1.803 2.884 1.735 4.573v0.024c0 3.402-1.96=
+1 5.454-4.777 6.286l4.012 5.116c0.383 0.383 0.586 0.901 0.586 1.42 0 0.945-=
+0.789 1.734-1.758 1.712-0.699 0-1.397-0.338-1.781-0.969l-5.114-6.535h-4.688=
+v5.656c-0.045 1.015-0.924 1.803-1.915 1.735-0.97-0.068-1.735-0.812-1.758-1.=
+758v-17.508zm9.08 8.585c2.637 0 4.35-1.397 4.35-3.538v-0.067c0-2.253-1.645-=
+3.493-4.394-3.493h-5.363v7.098h5.407z"/>
+		<path d=3D"m199.2 32.522c-4.597 0-8.135-3.313-8.135-8.248v-0.045c0-4.574 =
+3.199-8.292 7.752-8.292 5.069 0 7.571 4.168 7.571 7.818 0 0.971-0.744 1.713=
+-1.668 1.758h-0.067-9.981c0.382 2.569 2.229 4.057 4.573 4.057 1.375 0 2.727=
+-0.474 3.764-1.375 0.247-0.226 0.585-0.36 0.924-0.338 0.788-0.022 1.464 0.5=
+86 1.464 1.375v0.09c0 0.449-0.18 0.834-0.473 1.127-1.577 1.419-3.583 2.141-=
+5.724 2.073zm3.628-9.442c-0.248-2.321-1.622-4.146-4.057-4.146-2.23 0-3.807 =
+1.713-4.123 4.146h8.18z"/>
+		<path d=3D"m210.13 17.943c-0.045-1.014 0.744-1.848 1.758-1.848h0.045c0.99=
+2 0 1.78 0.811 1.825 1.803v1.036c1.172-1.667 2.817-2.997 5.408-2.997 3.718 =
+0 7.392 2.974 7.392 8.27v0.045c0 5.25-3.628 8.202-7.392 8.202-2.186 0.045-4=
+.17-0.991-5.408-2.771v5.611c0 1.014-0.833 1.825-1.825 1.825-1.014 0-1.803-0=
+.767-1.803-1.781v-17.395zm12.664 6.331v-0.045c0-3.109-2.05-5.115-4.507-5.11=
+5-2.523 0-4.642 2.051-4.642 5.115v0.022c0 3.042 2.163 5.07 4.642 5.07 2.457=
+ 1e-3 4.507-1.914 4.507-5.047z"/>
+		<path d=3D"m244.41 30.517c-0.046 1.013-0.925 1.78-1.938 1.735-0.946-0.046=
+-1.713-0.789-1.758-1.735v-0.812c-0.991 1.511-2.456 2.794-4.935 2.794-3.605 =
+0-5.656-2.411-5.656-6.106v-8.45c-0.067-1.014 0.72-1.893 1.735-1.916 0.991-0=
+.045 1.825 0.744 1.893 1.757v0.181 7.347c0 2.455 1.239 3.853 3.402 3.853s3.=
+561-1.42 3.561-3.922v-7.278c-0.045-1.037 0.767-1.87 1.758-1.938 1.013-0.045=
+ 1.892 0.744 1.938 1.757v0.181 12.552z"/>
+		<path d=3D"m248.96 11.858c-0.023-0.991 0.766-1.78 1.734-1.803h0.068c1.014=
+-0.022 1.802 0.767 1.848 1.758v0.045 7.098c1.172-1.667 2.816-2.974 5.386-2.=
+974 3.763 0 7.391 2.952 7.391 8.247v0.045c0 5.273-3.628 8.225-7.391 8.225-2=
+.118 0.046-4.169-0.99-5.386-2.771v0.812c-0.068 1.014-0.925 1.78-1.938 1.735=
+-0.924-0.045-1.667-0.789-1.712-1.735v-18.682zm12.73 12.416v-0.045c0-3.109-2=
+.095-5.115-4.573-5.115-2.479 0-4.643 2.051-4.643 5.115v0.022c0 3.042 2.187 =
+5.07 4.643 5.07 2.479 1e-3 4.573-1.914 4.573-5.047z"/>
+		<path d=3D"m269.35 11.858c0-0.991 0.79-1.803 1.758-1.803h0.022c1.016 0 1.=
+849 0.79 1.849 1.78v18.658c0 1.015-0.811 1.825-1.849 1.825-0.99 0-1.78-0.79=
+-1.78-1.803v-18.657z"/>
+		<path d=3D"m277.67 11.994c0-1.059 0.924-1.78 2.096-1.78s2.096 0.698 2.096=
+ 1.78v0.226c0 1.037-0.924 1.78-2.096 1.78s-2.096-0.744-2.096-1.78v-0.226zm0=
+.293 5.949c-0.045-1.014 0.766-1.803 1.758-1.848h0.045c1.014 0 1.848 0.833 1=
+.848 1.803v0.045 12.574c-0.09 1.013-0.924 1.78-1.938 1.735-0.925-0.046-1.66=
+8-0.789-1.713-1.735v-12.574z"/>
+		<path d=3D"m285.46 24.319v-0.045c-0.045-4.506 3.56-8.247 8.112-8.292h0.15=
+7c2.05-0.09 4.034 0.631 5.565 1.983 0.384 0.315 0.586 0.767 0.586 1.262 0 0=
+.901-0.742 1.646-1.666 1.646h-0.023c-0.383 0-0.766-0.136-1.059-0.384-0.946-=
+0.878-2.186-1.329-3.426-1.329-2.658 0-4.597 2.299-4.597 5.07v0.022c0 2.839 =
+1.938 5.07 4.755 5.07 1.328 0 2.569-0.519 3.538-1.42 0.608-0.586 1.577-0.56=
+3 2.163 0.045 0.293 0.293 0.451 0.722 0.428 1.149 0 0.451-0.157 0.856-0.473=
+ 1.149-1.555 1.51-3.65 2.299-5.814 2.23-4.461 0.068-8.158-3.515-8.225-7.954=
+-0.021-0.043-0.021-0.134-0.021-0.202z"/>
+	</g>
+		<path d=3D"m21.486 42.999 15.459-8.899c1.239-0.722 2.005-2.051 2.005-3.47=
+v-17.757c0-1.42-0.767-2.749-2.005-3.492l-15.459-8.857c-1.239-0.699-2.783-0.=
+699-4.022 0l-15.424 8.856c-1.263 0.744-2.04 2.073-2.04 3.493v17.757c0 1.419=
+ 0.777 2.748 2.006 3.47l15.458 8.899c1.24 0.723 2.784 0.723 4.022 0z" fill=
+=3D"#28BAA2"/>
+		<path d=3D"m26.14 23.756-1.712-1.374-4.349 3.312 5.464 5.431-1.453 1.329-=
+15.628-14.961 9.104-4.62 2.017 1.713 4.293-2.344 6.568 8.045-4.304 3.469z" =
+fill=3D"#fff"/>
+</svg>=0A
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.tutorialrepublic.com/lib/images/bootstrap-code-snippets.png
+
+iVBORw0KGgoAAAANSUhEUgAAA1IAAAC0CAMAAACpDe03AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2
+MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu
+MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz
+b3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1N
+Ok9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozYTg1Y2U0ZC0zOGJiLTg4NDMtYjhiOC1lYzEw
+OWU3YzQ2NjkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDVDOUVDQjcyNjNCMTFFQThFQ0E4
+RjFGMzNBNzAwNjAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDVDOUVDQjYyNjNCMTFFQThF
+Q0E4RjFGMzNBNzAwNjAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5k
+b3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ5RkY0
+NDhFMTk1OTExRTlBNDBGQzE4OTBERUQ2NjI4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ5
+RkY0NDhGMTk1OTExRTlBNDBGQzE4OTBERUQ2NjI4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3Jk
+ZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+RgqB/QAAAwBQTFRF5OXngHDf
+j5HOWqnWYl7Dgn7lYYmYc5HgqqvYg3rllN3hJtW9R97ly8vLzu/wfoXkVq3USlat4KVFfm7dTVex
++vr6g3TigYHlZp7b8/Pz5KyRgnHgMsvDYqLZ/qYjdo7heorj+0Yjg///Htu6iv//a///cWbQOlJt
+e///aWHJc///aprdNEleUNLMUrDS09PVbpbfIdi7emrYXafXcJTfeGjWUGZ82dvt+6YbnK7oXV29
+2NbzQlpzTrPQd9Hxt7ffLs3CqKTqZV/FcGXP8vT68tfNPcLJVVu49+jJTLXPxsjxkf//+/P0Ulm0
+dWfUxsbmaNHU3t/g5Pj4Pt3kRrrM7u7x42VLeYziztbdKdK/9sSwan2Ne6/ojuLeWVy6OsTHbWPM
+Qr7LK9DA+vXtmujphtveI9a8f4PlfGzbvcTKi+XcX6XYo5vmtu3ykeDfVFq2wr3sbJjee3TV4+D2
++Pf3bmTNaJzcm5TeXOHnSbjO5OP5jOTesq3ohJSk6uv6/TwX8O/5c2bSaez/T1iy7uzrUHSIxcXF
+hKGm8KAvX17Apa63e4jkd2jW1dbX7v38W1y8mNrig+ToZKDaa+HleoPdlozhcvT/NsfFytjgtMPt
+duz5deDn+Pf8Ite8dXfE3t7yRlWqS1avZ2q/g+76J9O+iZnl8ff4g3bjc93XQ7zMfoybYKPZ+pka
+W6fPguPabGLLfYbkV1u6np/VfKDjVtvaqrXse2za0s/zo7XCPNTFefj/joTje2vZft317PPxZ2DH
+yNPxurbtjInn1dziiX7bb23GwMjMNtvig/b7kfX7d7nkj9vgws3TRLzM6bpoiefczs3rON7jhIXK
+f8zvK0FXSFWsg3fk5ubza2LLaGHI29bWjdDUfcLtiuDeQc/I6ej474VwfIblPODeXGx+f6y/YKC7
+QMDKx8bGeJriQYOMYGi4zs7OO1x1ycnJVcPQhpDmfIjkfIfke4jjRLvMdmfV4en12dnaZ53cQ7vM
+Z6vSLsm5JtK6a6rOasPXp3Z8////W4EE0wAAemJJREFUeNrUvQ1cl1WePiyIg+Q4xsqLRA5OFvmS
+pSiZUCEvjUW+TplZxqBOyhojKCAbsoYPNpsLE60T09T8kCgTzdlQLNgZSaKhra2pzNYXdmvMmd1y
+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
+
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: https://www.tutorialrepublic.com/lib/images/bmc-btn.png
+
+iVBORw0KGgoAAAANSUhEUgAAANwAAAAtCAMAAADySvUPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2
+NDM1MiwgMjAyMC8wMS8zMC0xNTo1MDozOCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu
+MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz
+b3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1N
+OkRvY3VtZW50SUQ9InhtcC5kaWQ6OUY2NDdDMUY4REVEMTFFQUJDQkE5QTJFRUY4MDUwOUUiIHht
+cE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUY2NDdDMUU4REVEMTFFQUJDQkE5QTJFRUY4MDUwOUUi
+IHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKFdpbmRvd3MpIj4gPHhtcE1N
+OkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzBFNjZENUY4REVBMTFFQThF
+QjNENUIwMTEwMEE4NjMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzBFNjZENjA4REVBMTFF
+QThFQjNENUIwMTEwMEE4NjMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94Onht
+cG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7hYKg6AAADAFBMVEUZLT/5+vpMW2nz9PUEBQWhqbHl
+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
+AElFTkSuQmCC
+
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-74EE768DFFC7F36464F9FAB145271F91@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-558B994E70C22388BA8D5867B3DB398E@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-3EB8BF32C1909B17C06F957E822F2BE6@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-06F6D00EFF41D9D12E7A7E27CAEA7C7E@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-3AACE82C51F2511111D00D6EFAB754CA@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/html/r20240108/r20190131/zrt_lookup_fy2021.html
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body>
+</body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-44D2E86A887CB2A803700AAB4F6AD898@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&adk=1812271804&adf=3025194257&lmt=1704896443&plaf=1%3A2%2C2%3A2%2C7%3A2&plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&plas=250x735_l%7C279x735_r&format=0x0&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&pra=5&wgl=1&easpi=0&asro=0&asiscm=1&aslmt=0.4&asamt=-1&asedf=0&asefa=1&aseiel=1~2~3~4~6&aslcwct=150&asacwct=25&aslmct=0.5&asamct=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441583&bpp=3&bdt=2577&idt=2090&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&nras=1&correlator=5186965699966&frm=20&pv=2&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=-12245933&ady=-12245933&biw=1903&bih=933&scr_x=0&scr_y=0&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=1109998466&uas=3&nvt=1&fsapi=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=%7C%7Cs%7C&abl=NS&fu=32768&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=1&uci=a!1&fsb=1&dtd=2108
+
+<html webcrx=3D""><head><meta http-equiv=3D"Content-Type" content=3D"text/h=
+tml; charset=3DUTF-8"></head><body marginwidth=3D"0" marginheight=3D"0"></b=
+ody></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-6AE0ACFF73E425740B9D61D65521FAA1@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&h=90&slotname=4302666817&adk=1876392324&adf=2879770835&pi=t.ma~as.4302666817&w=728&lmt=1704896443&rafmt=12&format=728x90&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441586&bpp=1&bdt=2580&idt=2109&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&prev_fmts=0x0&nras=1&correlator=5186965699966&frm=20&pv=1&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=583&ady=148&biw=1903&bih=933&scr_x=0&scr_y=0&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=1109998466&uas=3&nvt=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=%7C%7CpoeE%7C&abl=CS&pfx=0&fu=256&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=2&uci=a!2&fsb=1&dtd=2116
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body marginwidth=3D"0" marginh=
+eight=3D"0"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-DAA6E6292D0624D8E80B76D7B6ACAFE6@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&h=600&slotname=4376141825&adk=3486105472&adf=1208360176&pi=t.ma~as.4376141825&w=160&lmt=1704896443&format=160x600&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441589&bpp=1&bdt=2584&idt=2119&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&prev_fmts=0x0%2C728x90&nras=1&correlator=5186965699966&frm=20&pv=1&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=1452&ady=148&biw=1903&bih=933&scr_x=0&scr_y=0&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=1109998466&uas=3&nvt=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=o%7C%7CpeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=5&uci=a!5&fsb=1&dtd=2123
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body marginwidth=3D"0" marginh=
+eight=3D"0"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-6CCAA297164D6400C93B267EDD052737@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&h=600&slotname=3387984471&adk=4121216962&adf=3447725916&pi=t.ma~as.3387984471&w=160&lmt=1704896443&format=160x600&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441589&bpp=1&bdt=2583&idt=2126&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&prev_fmts=0x0%2C728x90%2C160x600&nras=1&correlator=5186965699966&frm=20&pv=1&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=1452&ady=768&biw=1903&bih=933&scr_x=0&scr_y=0&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=1109998466&uas=3&nvt=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=%7C%7CpeE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=6&uci=a!6&fsb=1&dtd=2130
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body marginwidth=3D"0" marginh=
+eight=3D"0"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-BEDB6A06E2014425A236C3507A213B39@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"></head><body></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-352774EF28A617B867A9276E29AEE5F7@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://www.google.com/recaptcha/api2/aframe
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body><img src=3D"https://pagea=
+d2.googlesyndication.com/pagead/sodar?id=3Dsodar2&amp;v=3D225&amp;li=3Dgda_=
+r20240108&amp;jk=3D941851133644945&amp;rc=3D"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-1F1D91B2BA94E4FAB19D918969CABA96@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&h=280&slotname=3324015654&adk=4080247347&adf=520431283&pi=t.ma~as.3324015654&w=336&lmt=1704897950&format=336x280&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441588&bpp=1&bdt=2583&idt=2120&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&cookie=ID%3Dcad0689862508e0e%3AT%3D1704896442%3ART%3D1704896442%3AS%3DALNI_MYntl8GhmGSXm1EA1MxlA_HbDcwpA&gpic=UID%3D00000cd5290ba194%3AT%3D1704896442%3ART%3D1704896442%3AS%3DALNI_MZWt1RMOSBtcMRao-j970zLC_xhqA&prev_fmts=0x0%2C728x90%2C160x600%2C160x600&nras=1&correlator=5186965699966&frm=20&pv=1&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=1014&ady=7992&biw=1903&bih=933&scr_x=0&scr_y=4305&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=490794766&uas=1&nvt=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=%7C%7ClEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=4&uci=a!4&btvi=1&fsb=1&dtd=M
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body marginwidth=3D"0" marginh=
+eight=3D"0"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g----
+Content-Type: text/html
+Content-ID: <frame-310B6CFCFE4D2755FCA1A2B731089889@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://googleads.g.doubleclick.net/pagead/ads?gdpr=0&client=ca-pub-9107540490929984&output=html&h=280&slotname=8162953958&adk=3969794301&adf=3190163453&pi=t.ma~as.8162953958&w=336&lmt=1704897950&format=336x280&url=https%3A%2F%2Fwww.tutorialrepublic.com%2Fphp-tutorial%2Fphp-regular-expressions.php&ea=0&wgl=1&uach=WyJXaW5kb3dzIiwiMTUuMC4wIiwieDg2IiwiIiwiMTIwLjAuNjA5OS4yMDAiLG51bGwsMCxudWxsLCI2NCIsW1siTm90X0EgQnJhbmQiLCI4LjAuMC4wIl0sWyJDaHJvbWl1bSIsIjEyMC4wLjYwOTkuMjAwIl0sWyJHb29nbGUgQ2hyb21lIiwiMTIwLjAuNjA5OS4yMDAiXV0sMF0.&dt=1704896441587&bpp=1&bdt=2582&idt=2117&shv=r20240108&mjsv=m202401020101&ptt=9&saldr=aa&abxe=1&cookie=ID%3Dcad0689862508e0e%3AT%3D1704896442%3ART%3D1704896442%3AS%3DALNI_MYntl8GhmGSXm1EA1MxlA_HbDcwpA&gpic=UID%3D00000cd5290ba194%3AT%3D1704896442%3ART%3D1704896442%3AS%3DALNI_MZWt1RMOSBtcMRao-j970zLC_xhqA&prev_fmts=0x0%2C728x90%2C160x600%2C160x600%2C336x280&nras=1&correlator=5186965699966&frm=20&pv=1&ga_vid=1228185309.1704896440&ga_sid=1704896444&ga_hid=633193678&ga_fc=1&u_tz=360&u_his=3&u_h=1080&u_w=1920&u_ah=1056&u_aw=1920&u_cd=24&u_sd=1&dmc=8&adx=614&ady=7992&biw=1903&bih=933&scr_x=0&scr_y=4305&eid=44759875%2C44759926%2C31079980%2C31080223%2C42531705%2C42532523%2C95320894&oid=2&pvsid=941851133644945&tmod=490794766&uas=1&nvt=1&ref=https%3A%2F%2Fwww.google.com%2F&fc=1920&brdim=0%2C24%2C0%2C24%2C1920%2C24%2C1920%2C1056%2C1920%2C933&vis=1&rsz=o%7C%7ClEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&psd=W251bGwsbnVsbCxudWxsLDNd&nt=1&ifi=3&uci=a!3&btvi=2&fsb=1&dtd=M
+
+<!DOCTYPE html><html webcrx=3D""><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"></head><body marginwidth=3D"0" marginh=
+eight=3D"0"></body></html>
+------MultipartBoundary--CZRgputbJIpcKW4eAqbLdKLREb83i9aOLLprOnK71g------
